@@ -6,7 +6,8 @@
         xmlns:views="clr-namespace:DrDDiary.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="DrDDiary.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="DrDDiary">
+        Icon="/Assets/AppIcon/app_icon.png"
+        Title="DrDDiary"
+        CanResize="False">
         <views:MainView />
 </Window>
