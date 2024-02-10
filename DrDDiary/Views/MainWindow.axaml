@@ -4,10 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:DrDDiary.Views"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="700"
+        Width="1024" Height="700"
         x:Class="DrDDiary.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        WindowStartupLocation="CenterScreen"
         Icon="/Assets/AppIcon/app_icon.png"
         Title="DrDDiary"
         CanResize="False">
-        <views:MainView />
+  <!--<Design.DataContext>
+    --><!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) --><!--
+    <vm:MainWindowViewModel />
+  </Design.DataContext>-->
+  <Grid>
+    <Image Source="/Assets/Images/BasicBackgrounds/basic_frame_background.png" Stretch="None" ZIndex="2" IsHitTestVisible="False"/>
+    <views:MainView ZIndex="1"/>
+    <StackPanel Orientation="Vertical" Margin="0,75,10,0"
+                HorizontalAlignment="Right" ZIndex="3">
+      <Button x:Name="SK"
+              Content="SK"
+              Classes="LanguageButton"
+              Command="{Binding SKbuttonClicked}"
+              FontFamily="Monotype Corsiva"
+              FontWeight="Bold"
+              FontSize="25">
+      </Button>
+      <Button x:Name="EN"
+              Content="EN"
+              Classes="LanguageButton"
+              Command="{Binding ENbuttonClicked}"
+              FontFamily="Monotype Corsiva"
+              FontWeight="Bold"
+              FontSize="25">
+      </Button>
+    </StackPanel>
+  </Grid>
 </Window>

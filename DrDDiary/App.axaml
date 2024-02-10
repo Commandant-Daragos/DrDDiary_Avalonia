@@ -5,6 +5,35 @@
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
-        <FluentTheme />
+      <FluentTheme />
+      <Style Selector="Image.DragonHeadImage">
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="200"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Source" Value="/Assets/Images/Opening/dragon_head_new_not_hover.png"/>
+        <Style Selector="^:pointerover.DragonHeadImage">
+          <Setter Property="Source" Value="/Assets/Images/Opening/dragon_head_new_hover.png"/>
+        </Style>
+      </Style>
+      <Style Selector="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+          <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+          <Setter Property="Background" Value="Transparent" />
+        </Style>
+      </Style>
+      <!--<Style Selector="Button.LanguageButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Style Selector="^:pressed.LanguageButton /template/ ContentPresenter#PART_ContentPresenter">
+          <Setter Property="Background" Value="Transparent" />
+          <Setter Property="Foreground" Value="Red"/>
+        </Style>
+        <Style Selector="^:pointerover.LanguageButton /template/ ContentPresenter#PART_ContentPresenter">
+          <Setter Property="Background" Value="Transparent" />
+        </Style>
+      </Style>-->
     </Application.Styles>
 </Application>

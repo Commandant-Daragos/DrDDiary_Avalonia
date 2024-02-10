@@ -4,10 +4,27 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
   
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <AvaloniaResource Remove="Assets\Languages\languageEN.resx" />
+    <AvaloniaResource Remove="Assets\Languages\languageSK.resx" />
+    <AvaloniaResource Remove="Assets\Sounds\button_hover.wav" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <None Remove="Assets\Images\BasicBackgrounds\basic_frame_background.png" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <Content Include="Assets\Sounds\button_hover.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -17,5 +34,49 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Update="Assets\Images\Opening\dragon_head_new_hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\Images\Opening\dragon_head_new_not_hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\Languages\languageEN.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>languageEN.resx</DependentUpon>
+    </AvaloniaResource>
+    <EmbeddedResource Update="Assets\Languages\languageEN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>languageEN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <AvaloniaResource Update="Assets\Languages\languageSK.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>languageSK.resx</DependentUpon>
+    </AvaloniaResource>
+    <EmbeddedResource Update="Assets\Languages\languageSK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>languageSK.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Assets\Languages\languageEN.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>languageEN.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Assets\Languages\languageSK.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>languageSK.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OpeningView.axaml.cs">
+      <DependentUpon>OpeningView.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

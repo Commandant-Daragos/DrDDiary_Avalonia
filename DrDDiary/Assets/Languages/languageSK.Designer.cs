@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DnD_Diary_WPF.Resources.Languages {
+namespace DrDDiary.Assets.Languages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DnD_Diary_WPF.Resources.Languages {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DnD_Diary_WPF.Resources.Languages.languageSK", typeof(languageSK).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DrDDiary.Assets.Languages.languageSK", typeof(languageSK).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

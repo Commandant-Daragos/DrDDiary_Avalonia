@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DrDDiary.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="1024"
+             Width="1024" Height="1024"
+             x:Class="DrDDiary.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+  <!--User Control Background-->
+  <UserControl.Background>
+    <ImageBrush Source="\Assets\Images\BasicBackgrounds\basic_background.jpg"/>
+  </UserControl.Background>
+  <!--User Control Resources-->
+  <UserControl.Resources>
+  </UserControl.Resources>
+  <!--User Control Code-->
+  <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,300,0,0">
+      <Button Name="newButton"
+              PointerEntered="Button_PointerEntered"
+              PointerExited="Button_PointerExited">
+        <Panel>
+          <Image Classes="DragonHeadImage"/>
+        </Panel>
+      </Button>
+      <Button Name="loadButton"
+              Margin="160,0,0,0"
+              PointerEntered="Button_PointerEntered"
+              PointerExited="Button_PointerExited">
+        <Panel>         
+          <Image Classes="DragonHeadImage"/>         
+        </Panel>
+      </Button>
+    </StackPanel>
+    <Label x:Name="nameOfButtonLabel"
+           Foreground="White"
+           Margin="0,135,0,0"
+           HorizontalAlignment="Center"
+           FontFamily="Monotype Corsiva"
+           FontWeight="Bold"
+           FontSize="40">PlaceHolder</Label>
+  </StackPanel>
+</UserControl>
