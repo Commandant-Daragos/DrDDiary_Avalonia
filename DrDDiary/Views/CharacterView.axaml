@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="1024"
+             Width="1024" Height="1024"
+             x:Class="DrDDiary.Views.CharacterView">
+  <UserControl.Background>
+    <ImageBrush Source="\Assets\Images\BasicPage\basic_background_diary.png"/>
+  </UserControl.Background>
+  <Grid>
+    <Label
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center">Character Screen</Label>
+  </Grid>
+</UserControl>

@@ -20,23 +20,23 @@
   <Grid>
     <Image Source="/Assets/Images/BasicBackgrounds/basic_frame_background.png" Stretch="None" ZIndex="2" IsHitTestVisible="False"/>
     <views:MainView ZIndex="1"/>
-    <StackPanel Orientation="Vertical" Margin="0,75,10,0"
+    <StackPanel Orientation="Vertical" Margin="0,15,10,0"
                 HorizontalAlignment="Right" ZIndex="3">
-      <Button x:Name="SK"
-              Content="SK"
-              Classes="LanguageButton"
-              Command="{Binding SKbuttonClicked}"
-              FontFamily="Monotype Corsiva"
-              FontWeight="Bold"
-              FontSize="25">
+      <Button Name="SK_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Click="SK_Button_Click"
+              Command="{Binding SKbuttonClicked}">
       </Button>
-      <Button x:Name="EN"
-              Content="EN"
-              Classes="LanguageButton"
-              Command="{Binding ENbuttonClicked}"
-              FontFamily="Monotype Corsiva"
-              FontWeight="Bold"
-              FontSize="25">
+      <Button Name="EN_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Click="EN_Button_Click"
+              Command="{Binding ENbuttonClicked}">
       </Button>
     </StackPanel>
   </Grid>

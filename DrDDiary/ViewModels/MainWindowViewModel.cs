@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using DrDDiary.Helpers;
 using DrDDiary.Views;
 using ReactiveUI;
@@ -11,14 +12,14 @@ namespace DrDDiary.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    MainWindow mainWindow;
+    private MainWindow mainWindow;
 
-    public MainWindowViewModel() 
-    {
-        mainWindow = new MainWindow();
-
+    public MainWindowViewModel()
+    { 
         SKbuttonClicked = ReactiveCommand.Create(SetSKLanguage);
         ENbuttonClicked = ReactiveCommand.Create(SetENLanguage);
+
+        mainWindow = new MainWindow() { DataContext = this };
     }
 
     public ReactiveCommand<Unit, Unit> SKbuttonClicked { get; set; }
@@ -27,14 +28,15 @@ public class MainWindowViewModel : ViewModelBase
     private void SetSKLanguage()
     {
         LanguageManager.SetLanguageResource("SK");
-        //mainWindow.FindControl<Button>("SK").Foreground = new SolidColorBrush(Colors.Red);
-        //mainWindow.FindControl<Button>("EN").Foreground = new SolidColorBrush(Colors.White);
     }
 
     private void SetENLanguage()
     {
         LanguageManager.SetLanguageResource("EN");
-        //mainWindow.FindControl<Button>("SK").Foreground = new SolidColorBrush(Colors.White);
-        //mainWindow.FindControl<Button>("EN").Foreground = new SolidColorBrush(Colors.Red);
+    }
+
+    public MainWindow GetView()
+    {
+        return mainWindow;
     }
 }

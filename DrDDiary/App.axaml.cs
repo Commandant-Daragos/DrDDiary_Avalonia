@@ -18,13 +18,16 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainWindowViewModel()
-            };
+            MainWindowViewModel viewModel = new MainWindowViewModel();
+            desktop.MainWindow = viewModel.GetView();
+            //desktop.MainWindow = new MainWindow
+            //{
+            //    DataContext = new MainWindowViewModel()
+            //};
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
+
             singleViewPlatform.MainView = new MainView
             {
                 DataContext = new MainWindowViewModel()

@@ -10,6 +10,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
+    <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
     <AvaloniaResource Remove="Assets\Languages\languageEN.resx" />
     <AvaloniaResource Remove="Assets\Languages\languageSK.resx" />
     <AvaloniaResource Remove="Assets\Sounds\button_hover.wav" />
@@ -18,6 +20,8 @@
   
   <ItemGroup>
     <None Remove="Assets\Images\BasicBackgrounds\basic_frame_background.png" />
+    <None Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
+    <None Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
   </ItemGroup>
 
   
@@ -25,6 +29,16 @@
     <Content Include="Assets\Sounds\button_hover.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Images\Buttons\dragon_generic_button_clicked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Images\Buttons\dragon_generic_button_not_clicked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -75,8 +89,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>languageSK.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\OpeningView.axaml.cs">
-      <DependentUpon>OpeningView.axaml</DependentUpon>
+    <Compile Update="Views\MainView.axaml.cs">
+      <DependentUpon>MainView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
