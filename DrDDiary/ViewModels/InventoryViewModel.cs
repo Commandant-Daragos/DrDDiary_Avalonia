@@ -9,18 +9,17 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.ViewModels
 {
-    public class CharacterViewModel : ViewModelBase, IUserControlViewModel
+    public class InventoryViewModel : ViewModelBase, IUserControlViewModel
     {
-        private CharacterView characterView;
+        private InventoryView inventoryView;
 
-        public CharacterViewModel()
+        public InventoryViewModel()
         {
-            characterView = new CharacterView() { DataContext = this };
+            inventoryView = new InventoryView() { DataContext = this };
         }
-
         public UserControl GetView()
         {
-            return characterView;
+            return inventoryView;
         }
     }
 }

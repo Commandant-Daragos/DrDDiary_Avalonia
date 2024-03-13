@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.ViewModels
 {
-    public class CharacterViewModel : ViewModelBase, IUserControlViewModel
+    public class SkillViewModel : ViewModelBase, IUserControlViewModel
     {
-        private CharacterView characterView;
+        private SkillView skillView;
 
-        public CharacterViewModel()
+        public SkillViewModel()
         {
-            characterView = new CharacterView() { DataContext = this };
+            skillView = new SkillView() { DataContext = this };
         }
 
         public UserControl GetView()
         {
-            return characterView;
+            return skillView;
         }
     }
 }

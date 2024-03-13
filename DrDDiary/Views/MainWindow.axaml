@@ -19,7 +19,7 @@
   </Design.DataContext>-->
   <Grid>
     <Image Source="/Assets/Images/BasicBackgrounds/basic_frame_background.png" Stretch="None" ZIndex="2" IsHitTestVisible="False"/>
-    <views:MainView ZIndex="1"/>
+    <ContentControl Content="{Binding CurrentView}" ZIndex="1"/>
     <StackPanel Orientation="Vertical" Margin="0,15,10,0"
                 HorizontalAlignment="Right" ZIndex="3">
       <Button Name="SK_Button"

@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-
+using DrDDiary.Helpers;
 using DrDDiary.ViewModels;
 using DrDDiary.Views;
 
@@ -16,10 +16,13 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        WorkflowManager.CreateViewModels();
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             MainWindowViewModel viewModel = new MainWindowViewModel();
-            desktop.MainWindow = viewModel.GetView();
+            WorkflowManager.mainWindowViewModel = viewModel;
+            desktop.MainWindow = viewModel.GetMainWindow();
             //desktop.MainWindow = new MainWindow
             //{
             //    DataContext = new MainWindowViewModel()
