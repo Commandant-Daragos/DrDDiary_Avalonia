@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:DrDDiary.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="1024"
-             Width="1024" Height="1024"
+             Width="1500" Height="900"
              x:Class="DrDDiary.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
@@ -20,31 +20,4 @@
   <UserControl.Resources>
   </UserControl.Resources>
   <!--User Control Code-->
-  <StackPanel Orientation="Vertical">
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,300,0,0">
-      <Button Name="newButton"
-              PointerEntered="Button_PointerEntered"
-              PointerExited="Button_PointerExited"
-              Command="{Binding NewCharButtonClicked}">
-        <Panel>
-          <Image Classes="DragonHeadImage"/>
-        </Panel>
-      </Button>
-      <Button Name="loadButton"
-              Margin="160,0,0,0"
-              PointerEntered="Button_PointerEntered"
-              PointerExited="Button_PointerExited">
-        <Panel>         
-          <Image Classes="DragonHeadImage"/>         
-        </Panel>
-      </Button>
-    </StackPanel>
-    <Label x:Name="nameOfButtonLabel"
-           Foreground="White"
-           Margin="0,135,0,0"
-           HorizontalAlignment="Center"
-           FontFamily="Monotype Corsiva"
-           FontWeight="Bold"
-           FontSize="40">PlaceHolder</Label>
-  </StackPanel>
 </UserControl>

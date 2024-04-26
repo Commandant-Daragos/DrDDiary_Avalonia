@@ -12,10 +12,16 @@ namespace DrDDiary.Helper
     {
         private static SoundPlayer sp = new SoundPlayer();
 
-        public static void Play()
+        public static void PlayHoverSound()
         {
             sp.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Assets\\Sounds\\button_hover.wav";
             sp.Play(); 
+        }
+
+        public static void PlayClickSound()
+        {
+            sp.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Assets\\Sounds\\button_click.wav";
+            sp.Play();
         }
     }
 }

@@ -28,6 +28,10 @@ namespace DrDDiary.Helpers
             views.Add("SkillUC", new SkillViewModel());
             views.Add("LoreUC", new LoreViewModel());
             views.Add("NotesUC", new NotesViewModel());
+        }
+
+        public static void CreateMainViewModel()
+        {
             views.Add("MainUC", new MainViewModel());
         }
     }

@@ -14,18 +14,25 @@
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
     <AvaloniaResource Remove="Assets\Languages\languageEN.resx" />
     <AvaloniaResource Remove="Assets\Languages\languageSK.resx" />
+    <AvaloniaResource Remove="Assets\Sounds\button_click.wav" />
     <AvaloniaResource Remove="Assets\Sounds\button_hover.wav" />
   </ItemGroup>
 
   
   <ItemGroup>
+    <None Remove="Assets\Images\BasicBackgrounds\basic_background.jpg" />
+    <None Remove="Assets\Images\BasicBackgrounds\basic_background_diary.png" />
     <None Remove="Assets\Images\BasicBackgrounds\basic_frame_background.png" />
     <None Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
     <None Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
+    <None Remove="Assets\Sounds\button_click.wav" />
   </ItemGroup>
 
   
   <ItemGroup>
+    <Content Include="Assets\Sounds\button_click.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sounds\button_hover.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -42,12 +49,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
   </ItemGroup>
 

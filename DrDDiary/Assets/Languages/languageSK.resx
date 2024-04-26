@@ -123,4 +123,14 @@
   <data name="btnNew" xml:space="preserve">
     <value>Nová Postava</value>
   </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Meno:</value>
+  </data>
+  <data name="lblRace" xml:space="preserve">
+    <value>Rasa (Kultúra):</value>
+  </data>
+  <data name="Placeholder" xml:space="preserve">
+    <value>Placeholder</value>
+    <comment>default value</comment>
+  </data>
 </root>

@@ -123,4 +123,14 @@
   <data name="btnNew" xml:space="preserve">
     <value>New Character</value>
   </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="lblRace" xml:space="preserve">
+    <value>Race (Culture):</value>
+  </data>
+  <data name="Placeholde" xml:space="preserve">
+    <value>Placeholder</value>
+    <comment>default value</comment>
+  </data>
 </root>

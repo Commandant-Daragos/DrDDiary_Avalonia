@@ -5,22 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:DrDDiary.Views"
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="700"
-        Width="1024" Height="700"
+        Width="1500" Height="900"
         x:Class="DrDDiary.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         WindowStartupLocation="CenterScreen"
         Icon="/Assets/AppIcon/app_icon.png"
         Title="DrDDiary"
         CanResize="False">
-  <!--<Design.DataContext>
-    --><!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) --><!--
-    <vm:MainWindowViewModel />
-  </Design.DataContext>-->
   <Grid>
     <Image Source="/Assets/Images/BasicBackgrounds/basic_frame_background.png" Stretch="None" ZIndex="2" IsHitTestVisible="False"/>
     <ContentControl Content="{Binding CurrentView}" ZIndex="1"/>
-    <StackPanel Orientation="Vertical" Margin="0,15,10,0"
+    <StackPanel Name="DiaryButtons_StackPanel" Orientation="Horizontal" ZIndex="3" Height="100" Width="700" VerticalAlignment="Top" IsVisible="{Binding Visibility}">
+      <Button Name="Character_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Margin="-20,0,0,0"
+              Click="DiaryPlayer_Button_Click"
+              Command="{Binding CharacterScreenButtonClicked}">
+      </Button>
+      <Button Name="Inventory_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Click="DiaryPlayer_Button_Click"
+              Command="{Binding InventoryScreenButtonClicked}">
+      </Button>
+      <Button Name="Skill_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Click="DiaryPlayer_Button_Click"
+              Command="{Binding SkillScreenButtonClicked}">
+      </Button>
+      <Button Name="Lore_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Margin="130,0,0,0"
+              Click="DiaryPlayer_Button_Click"
+              Command="{Binding LoreScreenButtonClicked}">
+      </Button>
+      <Button Name="Notes_Button"
+              Width="100"
+              MaxWidth="150"
+              Height="100"
+              MaxHeight="150"
+              Click="DiaryPlayer_Button_Click"
+              Command="{Binding NotesScreenButtonClicked}">
+      </Button>
+    </StackPanel>
+    <StackPanel Orientation="Vertical" Margin="0,15,10,0" IsVisible="{Binding !Visibility}"
                 HorizontalAlignment="Right" ZIndex="3">
       <Button Name="SK_Button"
               Width="100"
@@ -38,6 +77,35 @@
               Click="EN_Button_Click"
               Command="{Binding ENbuttonClicked}">
       </Button>
+    </StackPanel>
+    <StackPanel Name="OpeningButtons_StackPanel" Orientation="Vertical" ZIndex="3" Height="100" Width="700" VerticalAlignment="Center" IsVisible="{Binding !Visibility}" Margin="0,-300,0,0">
+      <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Name="newButton"
+                  PointerEntered="Button_PointerEntered"
+                  PointerExited="Button_PointerExited"
+                  Command="{Binding NewCharButtonClicked}">
+            <Panel>
+              <Image Classes="DragonHeadImage"/>
+            </Panel>
+          </Button>
+          <Button Name="loadButton"
+                  Margin="160,0,0,0"
+                  PointerEntered="Button_PointerEntered"
+                  PointerExited="Button_PointerExited">
+            <Panel>
+              <Image Classes="DragonHeadImage"/>
+            </Panel>
+          </Button>
+        </StackPanel>
+        <Label x:Name="nameOfButtonLabel"
+               Foreground="White"
+               Margin="0,135,0,0"
+               HorizontalAlignment="Center"
+               FontFamily="Monotype Corsiva"
+               FontWeight="Bold"
+               FontSize="40">PlaceHolder</Label>
+      </StackPanel>
     </StackPanel>
   </Grid>
 </Window>

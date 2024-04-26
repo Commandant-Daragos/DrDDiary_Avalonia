@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrDDiary", "DrDDiary\DrDDia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrDDiary.Desktop", "DrDDiary.Desktop\DrDDiary.Desktop.csproj", "{C022FF6A-A97E-4A7F-AE77-0C060DC2ACA7}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DrDInstalationSetup", "DrDInstalationSetup\DrDInstalationSetup.vdproj", "{B008268E-1D99-4166-9D78-E7D45A2EE569}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{C022FF6A-A97E-4A7F-AE77-0C060DC2ACA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C022FF6A-A97E-4A7F-AE77-0C060DC2ACA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C022FF6A-A97E-4A7F-AE77-0C060DC2ACA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B008268E-1D99-4166-9D78-E7D45A2EE569}.Debug|Any CPU.ActiveCfg = Debug
+		{B008268E-1D99-4166-9D78-E7D45A2EE569}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using DrDDiary.Helpers;
 
 namespace DrDDiary.Views
 {
@@ -7,6 +8,15 @@ namespace DrDDiary.Views
         public CharacterView()
         {
             InitializeComponent();
+            SetLabelContent();
+        }
+
+        public void SetLabelContent()
+        {
+            //Labels will create before language is changed 
+            //Solo method invoked by Event called when button to change language is called ?
+            nameOfCharacter.Content = LanguageManager.GetString("lblName");
+            raceOfCharacter.Content = LanguageManager.GetString("lblRace");
         }
     }
 }

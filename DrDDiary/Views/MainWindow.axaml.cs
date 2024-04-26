@@ -1,6 +1,8 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using DrDDiary.Helper;
+using DrDDiary.Helpers;
 using DrDDiary.ViewModels;
 using System;
 using System.IO;
@@ -16,19 +18,63 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        SK_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
-        EN_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        SetLanguageButtons();
+        SetDiaryPlayerButtonsToDefault();
+
+        Character_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
     }
 
     private void SK_Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        MusicPlayer.PlayClickSound();
         SK_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
         EN_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
     }
 
     private void EN_Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        MusicPlayer.PlayClickSound();
         SK_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
         EN_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
+    }
+
+    private void DiaryPlayer_Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        MusicPlayer.PlayClickSound();
+        SetDiaryPlayerButtonsToDefault();
+        ((Button)sender).Content = new Image { Source = new Bitmap(IMAGECLICKED) };
+    }
+
+    private void Button_PointerEntered(object? sender, Avalonia.Input.PointerEventArgs e)
+    {
+        MusicPlayer.PlayHoverSound();
+        if (((Button)sender).Name == "newButton")
+        {
+            nameOfButtonLabel.Content = LanguageManager.GetString("btnNew");
+        }
+        else
+        {
+            nameOfButtonLabel.Content = LanguageManager.GetString("btnLoad");
+        }
+    }
+
+    private void Button_PointerExited(object? sender, Avalonia.Input.PointerEventArgs e)
+    {
+        nameOfButtonLabel.Content = string.Empty;
+    }
+
+    private void SetDiaryPlayerButtonsToDefault()
+    {
+        Character_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        Inventory_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        Skill_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        Lore_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        Notes_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+    }
+
+    private void SetLanguageButtons()
+    {
+        SK_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
+        EN_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
     }
 }
