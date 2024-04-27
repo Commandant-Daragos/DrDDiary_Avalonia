@@ -12,6 +12,7 @@
   <ItemGroup>
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
+    <AvaloniaResource Remove="Assets\Images\CharacterScreen\button_selection_character_screen.png" />
     <AvaloniaResource Remove="Assets\Languages\languageEN.resx" />
     <AvaloniaResource Remove="Assets\Languages\languageSK.resx" />
     <AvaloniaResource Remove="Assets\Sounds\button_click.wav" />
@@ -25,6 +26,9 @@
     <None Remove="Assets\Images\BasicBackgrounds\basic_frame_background.png" />
     <None Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
     <None Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
+    <None Remove="Assets\Images\CharacterScreen\button_selection_character_screen.png" />
+    <None Remove="Assets\Images\CharacterScreen\frame_background_character_screen.png" />
+    <None Remove="Assets\Images\CharacterScreen\Medieval Knight.jpg" />
     <None Remove="Assets\Sounds\button_click.wav" />
   </ItemGroup>
 
@@ -44,6 +48,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\Images\Buttons\dragon_generic_button_not_clicked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Images\CharacterScreen\button_selection_character_screen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

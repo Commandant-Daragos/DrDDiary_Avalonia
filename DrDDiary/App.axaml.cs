@@ -9,6 +9,8 @@ namespace DrDDiary;
 
 public partial class App : Application
 {
+    public static MainWindow MainWindowInstance { get; private set; }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -23,6 +25,7 @@ public partial class App : Application
             MainWindowViewModel viewModel = new MainWindowViewModel();
             WorkflowManager.mainWindowViewModel = viewModel;
             desktop.MainWindow = viewModel.GetMainWindow();
+            MainWindowInstance = viewModel.GetMainWindow();
             //desktop.MainWindow = new MainWindow
             //{
             //    DataContext = new MainWindowViewModel()

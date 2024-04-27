@@ -104,7 +104,7 @@
                HorizontalAlignment="Center"
                FontFamily="Monotype Corsiva"
                FontWeight="Bold"
-               FontSize="40">PlaceHolder</Label>
+               FontSize="40"></Label>
       </StackPanel>
     </StackPanel>
   </Grid>

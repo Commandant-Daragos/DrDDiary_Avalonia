@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.Models
 {
-    public abstract class BaseModel
+    public class InventoryModel : BaseModel
     {
     }
 }

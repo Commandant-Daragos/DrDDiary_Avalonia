@@ -2,9 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:DrDDiary.ViewModels"
+             xmlns:views="clr-namespace:DrDDiary.Views"
              mc:Ignorable="d" d:DesignWidth="1500" d:DesignHeight="900"
              Width="1500" Height="900"
-             x:Class="DrDDiary.Views.CharacterView">
+             x:Class="DrDDiary.Views.CharacterView"
+             x:DataType="vm:CharacterViewModel">
   <UserControl.Background>
     <ImageBrush Source="\Assets\Images\BasicBackgrounds\basic_background_diary.png"/>
   </UserControl.Background>
@@ -23,6 +26,28 @@
        FontFamily="Monotype Corsiva"
        FontWeight="Bold"
        FontSize="30"></Label>
+    <Grid>
+      <Image Source="/Assets/Images/CharacterScreen/frame_background_character_screen.png" 
+             Stretch="None" 
+             ZIndex="2" 
+             IsHitTestVisible="false" 
+             Margin="200,-100,0,0"
+             HorizontalAlignment="Left" />
+      <Button Name="ButtonSelectionCharacterScreen"
+              Width="350"
+              Height="390"
+              ZIndex="1"
+              HorizontalAlignment="Left"
+              Margin="200,-100,0,0"
+              Command="{Binding SelectCharImageButtonClicked}">
+        <Panel>
+          <Image Name="ButtonSelectionImageCharacterScreen"
+                 Source="{Binding ImagePath}"
+                 Stretch="None"
+                 Opacity="100"/>
+        </Panel>
+      </Button>
+    </Grid>
     <Label
       Foreground="Red"
       HorizontalAlignment="Center"
