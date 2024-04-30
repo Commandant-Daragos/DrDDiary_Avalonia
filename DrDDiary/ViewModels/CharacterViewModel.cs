@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
+using DrDDiary.Helpers;
 using DrDDiary.Interfaces;
 using DrDDiary.Views;
 using ReactiveUI;
@@ -25,6 +26,7 @@ namespace DrDDiary.ViewModels
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
 
             characterView = new CharacterView() { DataContext = this };
+            LanguageEventHandler.LanguageEvent += ReloadViewLabels;
             //characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(IMAGESELECT) };
         }
 
@@ -72,6 +74,11 @@ namespace DrDDiary.ViewModels
                     });
                 }
             });
+        }
+
+        private void ReloadViewLabels(object sender, LanguageEvent e)
+        {
+            characterView.SetLabelContent();
         }
     }
 }

@@ -111,11 +111,13 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     private void SetSKLanguage()
     {
         LanguageManager.SetLanguageResource("SK");
+        LanguageEventHandler.InvokeEvent();
     }
 
     private void SetENLanguage()
     {
         LanguageManager.SetLanguageResource("EN");
+        LanguageEventHandler.InvokeEvent();
     }
     /// <summary>
     /// Opening buttons
