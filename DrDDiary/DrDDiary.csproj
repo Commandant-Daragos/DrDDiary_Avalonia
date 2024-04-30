@@ -12,7 +12,6 @@
   <ItemGroup>
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
-    <AvaloniaResource Remove="Assets\Images\CharacterScreen\button_selection_character_screen.png" />
     <AvaloniaResource Remove="Assets\Languages\languageEN.resx" />
     <AvaloniaResource Remove="Assets\Languages\languageSK.resx" />
     <AvaloniaResource Remove="Assets\Sounds\button_click.wav" />
@@ -50,9 +49,6 @@
     <EmbeddedResource Include="Assets\Images\Buttons\dragon_generic_button_not_clicked.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\Images\CharacterScreen\button_selection_character_screen.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -62,10 +58,14 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaResource Update="Assets\Images\CharacterScreen\button_selection_character_screen.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </AvaloniaResource>
     <AvaloniaResource Update="Assets\Images\Opening\dragon_head_new_hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AvaloniaResource>

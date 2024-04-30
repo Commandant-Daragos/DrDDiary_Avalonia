@@ -42,7 +42,7 @@
               Command="{Binding SelectCharImageButtonClicked}">
         <Panel>
           <Image Name="ButtonSelectionImageCharacterScreen"
-                 Source="{Binding ImagePath}"
+                 Source="/Assets/Images/CharacterScreen/button_selection_character_screen.png"
                  Stretch="None"
                  Opacity="100"/>
         </Panel>

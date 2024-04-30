@@ -3,6 +3,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using DrDDiary.Helpers;
 using DrDDiary.Views;
+using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
 using System;
 using System.ComponentModel;
@@ -16,7 +17,16 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     private MainWindow mainWindow;
 
     public event PropertyChangedEventHandler? PropertyChanged;
+    //private IServiceProvider _serviceProvider;
+    //private readonly MainViewModel _mainViewModel;
     //public event EventHandler LanguageChanged;
+    private readonly CharacterViewModel _characterViewModel;
+    private readonly InventoryViewModel _inventoryViewModel;
+    private readonly SkillViewModel _skillViewModel;
+    private readonly LoreViewModel _loreViewModel;
+    private readonly NotesViewModel _notesViewModel;
+
+
 
     /// <summary>
     /// Visibility for StackPanel containing diary main buttons buttons.
@@ -33,7 +43,7 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
         }
     }
 
-    public MainWindowViewModel()
+    public MainWindowViewModel(MainViewModel mainViewModel, CharacterViewModel cVM, InventoryViewModel iVM, SkillViewModel sVM, LoreViewModel lVM, NotesViewModel nVM)
     {
         SKbuttonClicked = ReactiveCommand.Create(SetSKLanguage);
         ENbuttonClicked = ReactiveCommand.Create(SetENLanguage);
@@ -50,8 +60,17 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
         Visibility = false;
 
         mainWindow = new MainWindow() { DataContext = this };
-    }
 
+        //_serviceProvider = serviceProvider;
+        CurrentView = mainViewModel.GetView();//_serviceProvider.GetService<MainViewModel>().GetView();
+
+        _characterViewModel = cVM;
+        _inventoryViewModel = iVM;
+        _skillViewModel = sVM;
+        _loreViewModel = lVM;
+        _notesViewModel = nVM;
+    }
+    private UserControl _currentView;
     public UserControl CurrentView
     {
         get { return _currentView; }
@@ -63,7 +82,7 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
         }
     }
 
-    private UserControl _currentView = WorkflowManager.GetView("MainUC");
+    //private UserControl _currentView = WorkflowManagerer.GetView("MainUC");
 
     /// <summary>
     /// Language buttons
@@ -103,8 +122,10 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     /// </summary>
     private void NewCharacter()
     {
-        WorkflowManager.CreateViewModels();
-        WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("CharacterUC"));
+        //WorkflowManager.CreateViewModels();
+        //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("CharacterUC"));
+        //SetCurrentView(_serviceProvider.GetService<CharacterViewModel>().GetView());
+        SetCurrentView(_characterViewModel.GetView());
         Visibility = true;
         //LanguageChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -118,23 +139,33 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     /// </summary>
     private void CharacterScreen()
     {
-        WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("CharacterUC"));
+        //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("CharacterUC"));
+        //SetCurrentView(_serviceProvider.GetService<CharacterViewModel>().GetView());
+        SetCurrentView(_characterViewModel.GetView());
     }
     private void InventoryScreen()
     {
-        WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("InventoryUC"));
+        //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("InventoryUC"));
+        //SetCurrentView(_serviceProvider.GetService<InventoryViewModel>().GetView());
+        SetCurrentView(_inventoryViewModel.GetView());
     }
     private void SkillScreen()
     {
-        WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("SkillUC"));
+        //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("SkillUC"));
+        //SetCurrentView(_serviceProvider.GetService<SkillViewModel>().GetView());
+        SetCurrentView(_skillViewModel.GetView());
     }
     private void LoreScreen()
     {
-        WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("LoreUC"));
+        //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("LoreUC"));
+        //SetCurrentView(_serviceProvider.GetService<LoreViewModel>().GetView());
+        SetCurrentView(_loreViewModel.GetView());
     }
     private void NotesScreen()
     {
-        WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("NotesUC"));
+        //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("NotesUC"));
+        //SetCurrentView(_serviceProvider.GetService<NotesViewModel>().GetView());
+        SetCurrentView(_notesViewModel.GetView());
     }
     /// <summary>
     /// Class functionality

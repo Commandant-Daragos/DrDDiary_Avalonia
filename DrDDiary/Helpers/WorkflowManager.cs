@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.Helpers
 {
+    /// <summary>
+    /// Marked Obsolete-functionality used before DI was implemented.
+    /// Class was used as workflow manager for views and viewmodels.
+    /// </summary>
     public static class WorkflowManager
     {
         private static Dictionary<string, IUserControlViewModel> views = new Dictionary<string, IUserControlViewModel>();

@@ -11,7 +11,7 @@ namespace DrDDiary.Views
             SetLabelContent();
         }
 
-        public void SetLabelContent()
+        private void SetLabelContent()
         {
             //Labels will create before language is changed 
             //Solo method invoked by Event called when button to change language is called ?

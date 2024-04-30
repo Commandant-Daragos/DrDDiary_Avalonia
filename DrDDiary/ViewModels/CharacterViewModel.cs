@@ -18,14 +18,14 @@ namespace DrDDiary.ViewModels
     public class CharacterViewModel : ViewModelBase, IUserControlViewModel
     {
         private CharacterView characterView;
-        private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
+        //private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
 
         public CharacterViewModel()
         {
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
 
             characterView = new CharacterView() { DataContext = this };
-            characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(IMAGESELECT) };
+            //characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(IMAGESELECT) };
         }
 
         public UserControl GetView()
@@ -67,11 +67,11 @@ namespace DrDDiary.ViewModels
                         if (ImagePath is not null)
                         {
                             characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(ImagePath) };
+                            characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
                         }
                     });
                 }
             });
-            characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
         }
     }
 }
