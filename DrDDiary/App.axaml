@@ -25,6 +25,19 @@
           <Setter Property="Background" Value="Transparent" />
         </Style>
       </Style>
+      <Style Selector="TextBox">
+        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="FontFamily" Value="Monotype Corsiva"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderThickness" Value="0.1"/>
+        <Style Selector="^:focus /template/ Border#PART_BorderElement">
+          <Setter Property="Background">
+            <SolidColorBrush Color="WhiteSmoke"/>
+          </Setter>
+          <Setter Property="Opacity" Value="0.1"/>
+        </Style>
+      </Style>     
       <!--<Style Selector="Button.LanguageButton">
         <Setter Property="Background" Value="Transparent" />
         <Style Selector="^:pressed.LanguageButton /template/ ContentPresenter#PART_ContentPresenter">
