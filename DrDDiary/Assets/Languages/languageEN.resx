@@ -123,13 +123,66 @@
   <data name="btnNew" xml:space="preserve">
     <value>New Character</value>
   </data>
+  <data name="lblAlchemist" xml:space="preserve">
+    <value>Alchemist:</value>
+  </data>
+  <data name="lblBorderGuard" xml:space="preserve">
+    <value>Border Guard:</value>
+    <comment>would need different translation ?</comment>
+  </data>
+  <data name="lblClassesAdvanced" xml:space="preserve">
+    <value>Classes (Advanced)</value>
+  </data>
+  <data name="lblClassesBasic" xml:space="preserve">
+    <value>Classes (Basic)</value>
+  </data>
+  <data name="lblConjurer" xml:space="preserve">
+    <value>Conjurer:</value>
+  </data>
+  <data name="lblDruid" xml:space="preserve">
+    <value>Druid:</value>
+  </data>
+  <data name="lblFighter" xml:space="preserve">
+    <value>Fighter:</value>
+  </data>
+  <data name="lblHunter" xml:space="preserve">
+    <value>Hunter:</value>
+  </data>
+  <data name="lblMage" xml:space="preserve">
+    <value>Mage:</value>
+  </data>
+  <data name="lblMedicaster" xml:space="preserve">
+    <value>Medicaster:</value>
+    <comment>other translations: mountebank,saltimbanco</comment>
+  </data>
   <data name="lblName" xml:space="preserve">
     <value>Name:</value>
   </data>
   <data name="lblRace" xml:space="preserve">
     <value>Race (Culture):</value>
   </data>
-  <data name="Placeholde" xml:space="preserve">
+  <data name="lblRobber" xml:space="preserve">
+    <value>Robber:</value>
+  </data>
+  <data name="lblScholar" xml:space="preserve">
+    <value>Scholar:</value>
+  </data>
+  <data name="lblScout" xml:space="preserve">
+    <value>Scout:</value>
+  </data>
+  <data name="lblShaman" xml:space="preserve">
+    <value>Shaman:</value>
+  </data>
+  <data name="lblTrickster" xml:space="preserve">
+    <value>Trickster:</value>
+  </data>
+  <data name="lblWarrior" xml:space="preserve">
+    <value>Warrior:</value>
+  </data>
+  <data name="lblWizard" xml:space="preserve">
+    <value>Wizard:</value>
+  </data>
+  <data name="Placeholder" xml:space="preserve">
     <value>Placeholder</value>
     <comment>default value</comment>
   </data>

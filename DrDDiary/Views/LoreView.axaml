@@ -9,6 +9,7 @@
     <ImageBrush Source="\Assets\Images\BasicBackgrounds\basic_background_diary.png"/>
   </UserControl.Background>
   <Grid>
+    <!--Default name of screen-->
     <Label
       Foreground="Red"
       HorizontalAlignment="Center"

@@ -12,6 +12,7 @@
     <ImageBrush Source="\Assets\Images\BasicBackgrounds\basic_background_diary.png"/>
   </UserControl.Background>
   <Grid>
+    <!--Character name and race labels and textboxes-->
     <Label x:Name="nameOfCharacter"
            Foreground="Black"
            Margin="200,100,0,0"
@@ -42,6 +43,7 @@
              HorizontalAlignment="Left"
              VerticalAlignment="Top">
     </TextBox>
+    <!--Character image selection-->
     <Grid>
       <Image Source="/Assets/Images/CharacterScreen/frame_background_character_screen.png" 
              Stretch="None" 
@@ -64,9 +66,24 @@
         </Panel>
       </Button>
     </Grid>
-    <Label
-      Foreground="Red"
-      HorizontalAlignment="Center"
-      VerticalAlignment="Center">Character Screen</Label>
+    <StackPanel Background="Green" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,-110,0,0">
+      <Label Name="ClassesBasic"/>
+      <Label Name="lblFighter"/>
+      <Label Name="lblTrickster"/>
+      <Label Name="lblHunter"/>
+      <Label Name="lblMedicaster"/>
+      <Label Name="lblConjurer"/>
+      <Label Name="ClassesAdvanced"/>
+      <Label Name="lblWarrior"/>
+      <Label Name="lblBorderGuard"/>
+      <Label Name="lblScholar"/>
+      <Label Name="lblWizard"/>
+      <Label Name="lblScout"/>
+      <Label Name="lblRobber"/>
+      <Label Name="lblMage"/>
+      <Label Name="lblDruid"/>
+      <Label Name="lblShaman"/>
+      <Label Name="lblAlchemist"/>
+    </StackPanel>
   </Grid>
 </UserControl>

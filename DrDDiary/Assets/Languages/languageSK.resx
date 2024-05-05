@@ -123,11 +123,62 @@
   <data name="btnNew" xml:space="preserve">
     <value>Nová Postava</value>
   </data>
+  <data name="lblAlchemist" xml:space="preserve">
+    <value>Alchymista:</value>
+  </data>
+  <data name="lblBorderGuard" xml:space="preserve">
+    <value>Hraničiar:</value>
+  </data>
+  <data name="lblClassesAdvanced" xml:space="preserve">
+    <value>Povolania (Pokročilé)</value>
+  </data>
+  <data name="lblClassesBasic" xml:space="preserve">
+    <value>Povolania (Základné)</value>
+  </data>
+  <data name="lblConjurer" xml:space="preserve">
+    <value>Zariekavač:</value>
+  </data>
+  <data name="lblDruid" xml:space="preserve">
+    <value>Druid:</value>
+  </data>
+  <data name="lblFighter" xml:space="preserve">
+    <value>Bitkár:</value>
+  </data>
+  <data name="lblHunter" xml:space="preserve">
+    <value>Lovec:</value>
+  </data>
+  <data name="lblMage" xml:space="preserve">
+    <value>Mág:</value>
+  </data>
+  <data name="lblMedicaster" xml:space="preserve">
+    <value>Mastičkár:</value>
+  </data>
   <data name="lblName" xml:space="preserve">
     <value>Meno:</value>
   </data>
   <data name="lblRace" xml:space="preserve">
     <value>Rasa (Kultúra):</value>
+  </data>
+  <data name="lblRobber" xml:space="preserve">
+    <value>Lupič:</value>
+  </data>
+  <data name="lblScholar" xml:space="preserve">
+    <value>Učenec:</value>
+  </data>
+  <data name="lblScout" xml:space="preserve">
+    <value>Zved:</value>
+  </data>
+  <data name="lblShaman" xml:space="preserve">
+    <value>Šaman:</value>
+  </data>
+  <data name="lblTrickster" xml:space="preserve">
+    <value>Figliar:</value>
+  </data>
+  <data name="lblWarrior" xml:space="preserve">
+    <value>Bojovník:</value>
+  </data>
+  <data name="lblWizard" xml:space="preserve">
+    <value>Čarodej:</value>
   </data>
   <data name="Placeholder" xml:space="preserve">
     <value>Placeholder</value>

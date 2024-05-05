@@ -13,8 +13,10 @@
         Title="DrDDiary"
         CanResize="False">
   <Grid>
+    <!--Frame image of application-->
     <Image Source="/Assets/Images/BasicBackgrounds/basic_frame_background.png" Stretch="None" ZIndex="2" IsHitTestVisible="False"/>
     <ContentControl Content="{Binding CurrentView}" ZIndex="1"/>
+    <!--Buttons for application selection-->
     <StackPanel Name="DiaryButtons_StackPanel" Orientation="Horizontal" ZIndex="3" Height="100" Width="700" VerticalAlignment="Top" IsVisible="{Binding Visibility}">
       <Button Name="Character_Button"
               Width="100"
@@ -59,6 +61,7 @@
               Command="{Binding NotesScreenButtonClicked}">
       </Button>
     </StackPanel>
+    <!--Language buttons selection-->
     <StackPanel Orientation="Vertical" Margin="0,15,10,0" IsVisible="{Binding !Visibility}"
                 HorizontalAlignment="Right" ZIndex="3">
       <Button Name="SK_Button"
@@ -78,6 +81,7 @@
               Command="{Binding ENbuttonClicked}">
       </Button>
     </StackPanel>
+    <!--Starting buttons of application-->
     <StackPanel Name="OpeningButtons_StackPanel" Orientation="Vertical" ZIndex="3" Height="100" Width="700" VerticalAlignment="Center" IsVisible="{Binding !Visibility}" Margin="0,-300,0,0">
       <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -98,6 +102,7 @@
             </Panel>
           </Button>
         </StackPanel>
+        <!--Label showing text which button has pointer over-->
         <Label x:Name="nameOfButtonLabel"
                Foreground="White"
                Margin="0,135,0,0"
