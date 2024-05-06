@@ -13,36 +13,37 @@ public partial class MainWindow : Window
 {
     private const string IMAGENOTCLICKED = "Assets/Images/Buttons/dragon_generic_button_not_clicked.png";
     private const string IMAGECLICKED = "Assets/Images/Buttons/dragon_generic_button_clicked.png";
-
+    
     public MainWindow()
     {
         InitializeComponent();
 
+        Character_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECLICKED)) };
+
         SetLanguageButtons();
         SetDiaryPlayerButtonsToDefault();
 
-        Character_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
     }
 
     private void SK_Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MusicPlayer.PlayClickSound();
-        SK_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
-        EN_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        SK_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECLICKED)) };
+        EN_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
     }
 
     private void EN_Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MusicPlayer.PlayClickSound();
-        SK_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
-        EN_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
+        SK_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
+        EN_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECLICKED)) };
     }
 
     private void DiaryPlayer_Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MusicPlayer.PlayClickSound();
         SetDiaryPlayerButtonsToDefault();
-        ((Button)sender).Content = new Image { Source = new Bitmap(IMAGECLICKED) };
+        ((Button)sender).Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECLICKED)) };
     }
 
     private void Button_PointerEntered(object? sender, Avalonia.Input.PointerEventArgs e)
@@ -65,16 +66,16 @@ public partial class MainWindow : Window
 
     private void SetDiaryPlayerButtonsToDefault()
     {
-        Character_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
-        Inventory_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
-        Skill_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
-        Lore_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
-        Notes_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        Character_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
+        Inventory_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
+        Skill_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
+        Lore_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
+        Notes_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
     }
 
     private void SetLanguageButtons()
     {
-        SK_Button.Content = new Image { Source = new Bitmap(IMAGECLICKED) };
-        EN_Button.Content = new Image { Source = new Bitmap(IMAGENOTCLICKED) };
+        SK_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECLICKED)) };
+        EN_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
     }
 }

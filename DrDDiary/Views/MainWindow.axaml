@@ -106,7 +106,8 @@
         <Label x:Name="nameOfButtonLabel"
                Foreground="White"
                Margin="0,135,0,0"
-               HorizontalAlignment="Center"/>
+               HorizontalAlignment="Center"
+               FontSize="30"/>
       </StackPanel>
     </StackPanel>
   </Grid>
