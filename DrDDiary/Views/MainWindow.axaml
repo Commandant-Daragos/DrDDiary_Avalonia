@@ -106,10 +106,7 @@
         <Label x:Name="nameOfButtonLabel"
                Foreground="White"
                Margin="0,135,0,0"
-               HorizontalAlignment="Center"
-               FontFamily="Monotype Corsiva"
-               FontWeight="Bold"
-               FontSize="40"></Label>
+               HorizontalAlignment="Center"/>
       </StackPanel>
     </StackPanel>
   </Grid>

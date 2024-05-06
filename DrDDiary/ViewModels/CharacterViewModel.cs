@@ -26,7 +26,6 @@ namespace DrDDiary.ViewModels
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
 
             characterView = new CharacterView() { DataContext = this };
-            LanguageEventHandler.LanguageEvent += ReloadViewLabels;
             //characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(IMAGESELECT) };
         }
 
@@ -74,11 +73,6 @@ namespace DrDDiary.ViewModels
                     });
                 }
             });
-        }
-
-        private void ReloadViewLabels(object sender, LanguageEvent e)
-        {
-            characterView.SetLabelContent();
         }
     }
 }

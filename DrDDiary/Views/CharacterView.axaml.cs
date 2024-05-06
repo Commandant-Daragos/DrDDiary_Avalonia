@@ -9,6 +9,7 @@ namespace DrDDiary.Views
         {
             InitializeComponent();
             SetLabelContent();
+            LanguageEventHandler.LanguageEvent += ReloadViewLabels;
         }
 
         public void SetLabelContent()
@@ -36,6 +37,11 @@ namespace DrDDiary.Views
             lblDruid.Content = LanguageManager.GetString("lblDruid");
             lblShaman.Content = LanguageManager.GetString("lblShaman");
             lblAlchemist.Content = LanguageManager.GetString("lblAlchemist");
+        }
+
+        private void ReloadViewLabels(object sender, LanguageEvent e)
+        {
+            SetLabelContent();
         }
     }
 }
