@@ -33,7 +33,7 @@
         <Setter Property="BorderBrush" Value="Black"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Height" Value="20"/>
-        <Setter Property="MinWidth" Value="20"/>
+        <Setter Property="MinWidth" Value="25"/>
         <Setter Property="MaxLength" Value="2"/>
         <Style Selector="^:focus /template/ Border#PART_BorderElement">
           <Setter Property="Background">
