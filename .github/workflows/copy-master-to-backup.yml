@@ -18,6 +18,9 @@ jobs:
         
       - name: Merge changes from master
         run: git merge --ff-only origin/master
+        
+      - name: Resolve merge conflicts using 'theirs' strategy
+        run: git checkout --theirs .
 
       - name: Push changes to master-backup branch
         run: git push origin master-backup
