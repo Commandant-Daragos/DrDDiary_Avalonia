@@ -16,11 +16,11 @@ jobs:
       - name: Create and checkout master-backup branch
         run: git checkout -b master-backup
 
-      - name: Merge changes from master
-        run: git merge origin/master
-
       - name: Pull changes from master-backup
         run: git pull origin master-backup
+        
+      - name: Merge changes from master
+        run: git merge origin/master
 
       - name: Push changes to master-backup branch
         run: git push origin master-backup
