@@ -15,12 +15,15 @@ jobs:
 
       - name: Create and checkout master-backup branch
         run: git checkout -b master-backup
+
+      - name: Pull changes from master-backup branch
+        run: git pull origin master-backup
         
       - name: Merge changes from master
-        run: git merge --ff-only origin/master
+        run: git merge origin/master
         
       - name: Resolve merge conflicts using 'theirs' strategy
         run: git checkout --theirs .
 
       - name: Push changes to master-backup branch
-        run: git push --set-upstream origin master-backup
+        run: git push origin master-backup
