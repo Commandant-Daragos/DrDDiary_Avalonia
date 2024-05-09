@@ -13,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Delete remote branch
+        run: git push origin --delete master-backup
+  
       - name: Create and checkout master-backup branch
         run: git checkout -b master-backup
-
-      - name: Pull changes from master-backup branch
-        run: git pull origin master-backup
         
       - name: Merge changes from master
         run: git merge origin/master
