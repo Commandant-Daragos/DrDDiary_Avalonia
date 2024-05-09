@@ -29,13 +29,17 @@
         <Setter Property="Background" Value="WhiteSmoke"/>
         <Setter Property="FontFamily" Value="Monotype Corsiva"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="BorderThickness" Value="0.1"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="MinWidth" Value="25"/>
+        <Setter Property="MaxLength" Value="2"/>
         <Style Selector="^:focus /template/ Border#PART_BorderElement">
           <Setter Property="Background">
             <SolidColorBrush Color="WhiteSmoke"/>
           </Setter>
-          <Setter Property="Opacity" Value="0.1"/>
+          <Setter Property="Opacity" Value="0.5"/>
         </Style>
       </Style>
       <Style Selector="Label">
