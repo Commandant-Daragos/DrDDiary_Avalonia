@@ -13,17 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Fetch latest changes
-        run: git fetch --all
-  
-      - name: Checkout the branch you want to rebase
-        run: git checkout master-backup
+      - name: Delete remote branch
+        run: git push origin --delete master-backup
 
-      - name: Initiate the rebase
-        run: git merge master
+      - name: Create and checkout master-backup branch
+        run: git checkout -b master-backup
 
+      - name: Merge changes from master
+        run: git merge origin/master
+        
       - name: Resolve merge conflicts using 'theirs' strategy
         run: git checkout --theirs .
-
-      - name: Push the changes (optional)
-        run: git push --force
+      - name: Push changes to master-backup branch
+        run: git push origin master-backup
