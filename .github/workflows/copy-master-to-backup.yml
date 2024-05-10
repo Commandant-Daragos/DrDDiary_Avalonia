@@ -20,13 +20,10 @@ jobs:
         run: git checkout master-backup
 
       - name: Initiate the rebase
-        run: git rebase master
+        run: git merge master
 
       - name: Resolve merge conflicts using 'theirs' strategy
         run: git checkout --theirs .
-        
-      - name: Continue the rebase
-        run: git rebase --continue
 
       - name: Push the changes (optional)
         run: git push --force
