@@ -22,6 +22,9 @@ jobs:
       - name: Initiate the rebase
         run: git rebase master
 
+      - name: Resolve merge conflicts using 'theirs' strategy
+        run: git checkout --theirs .
+        
       - name: Continue the rebase
         run: git rebase --continue
 
