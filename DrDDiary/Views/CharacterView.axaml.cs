@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Input;
 using DrDDiary.Helpers;
 
 namespace DrDDiary.Views
@@ -9,6 +10,8 @@ namespace DrDDiary.Views
         {
             InitializeComponent();
             SetLabelContent();
+            SetTextBoxElementsPreviewEvent();
+
             LanguageEventHandler.LanguageEvent += ReloadViewLabels;
         }
 
@@ -42,6 +45,26 @@ namespace DrDDiary.Views
         private void ReloadViewLabels(object sender, LanguageEvent e)
         {
             SetLabelContent();
+        }
+
+        private void SetTextBoxElementsPreviewEvent()
+        {
+            lvlFighter.KeyDown += LevelTextBox_KeyDown;
+        }
+
+        /// <summary>
+        /// Event check to allow only numeric characters (0-9) in level text boxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LevelTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!((e.Key >= Key.D0 && e.Key <= Key.D9) ||
+                  (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) ||
+                  e.Key == Key.Back || e.Key == Key.Delete))
+            {
+                e.Handled = true; // Reject input
+            }
         }
     }
 }
