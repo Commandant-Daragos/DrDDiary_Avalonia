@@ -20,7 +20,7 @@ jobs:
         run: git checkout master-backup
 
       - name: Initiate the rebase
-        run: git merge master
+        run: git merge master --allow-unrelated-histories
 
       - name: Resolve merge conflicts using 'theirs' strategy
         run: git checkout --theirs .
