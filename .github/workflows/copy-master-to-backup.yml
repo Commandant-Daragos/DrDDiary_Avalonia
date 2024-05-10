@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Fetch latest changes
+        run: git fetch --all
   
       - name: Checkout the branch you want to rebase
         run: git checkout master-backup
