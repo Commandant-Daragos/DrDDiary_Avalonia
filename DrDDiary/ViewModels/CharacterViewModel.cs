@@ -16,11 +16,28 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.ViewModels
 {
-    public class CharacterViewModel : ViewModelBase, IUserControlViewModel
+    public class CharacterViewModel : ViewModelBase, IUserControlViewModel, INotifyPropertyChanged
     {
         private CharacterView characterView;
         //private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
 
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private int? _textBoxValue;
+        public int? TextBoxValue
+        {
+            get { return _textBoxValue; }
+            set
+            {
+                _textBoxValue = value;
+                OnPropertyChanged(nameof(TextBoxValue));
+            }
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CharacterViewModel()
         {
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
@@ -32,6 +49,15 @@ namespace DrDDiary.ViewModels
         public UserControl GetView()
         {
             return characterView;
+        }
+
+        /// <summary>
+        /// Property Changed invoke metod
+        /// </summary>
+        /// <param name="propName"></param>
+        private void OnPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:DrDDiary.ViewModels"
              xmlns:views="clr-namespace:DrDDiary.Views"
+             xmlns:local="clr-namespace:DrDDiary.Helpers.ValueConverter"
              mc:Ignorable="d" d:DesignWidth="1500" d:DesignHeight="900"
              Width="1500" Height="900"
              x:Class="DrDDiary.Views.CharacterView"
@@ -11,6 +12,10 @@
   <UserControl.Background>
     <ImageBrush Source="\Assets\Images\BasicBackgrounds\basic_background_diary.png"/>
   </UserControl.Background>
+  <UserControl.Resources>
+    <local:ValueToColorConverter x:Key="ValueToColorConverter" />
+    <local:NumericConverter x:Key="NumericConverter" />
+  </UserControl.Resources>
   <Grid>
     <!--Character name and race labels and textboxes-->
     <Label x:Name="nameOfCharacter"
@@ -70,9 +75,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblFighter"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding TextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlFighter"
                  Grid.Column="1"
+                 Text="{Binding TextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
