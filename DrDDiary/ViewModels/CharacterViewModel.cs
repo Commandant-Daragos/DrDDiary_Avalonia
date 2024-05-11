@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reactive;
 using System.Text;
@@ -21,7 +22,7 @@ namespace DrDDiary.ViewModels
     {
         private CharacterView characterView;
         private CharacterModel characterModel;
-        //private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
+        private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
@@ -35,9 +36,10 @@ namespace DrDDiary.ViewModels
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
 
             characterView.DataContext = this;
-            //characterView = new CharacterView() { DataContext = this };
-            //characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(IMAGESELECT) };
+
+            SetCharacterButtonSelectionImageToDefaultIfNotPresent();
         }
+
         #region CharacterBasicInfoTextBoxesAndImage
         /// <summary>
         /// Name TextBox
@@ -329,6 +331,18 @@ namespace DrDDiary.ViewModels
                     });
                 }
             });
+        }
+
+        private void SetCharacterButtonSelectionImageToDefaultIfNotPresent()
+        {
+            if (characterModel.Image == null)
+            {
+                characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGESELECT)) };
+            }
+            else
+            {
+                characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+            }
         }
     }
 }

@@ -62,12 +62,6 @@
               Margin="200,-100,0,0"
               Content="{Binding ImageButtonContent}"
               Command="{Binding SelectCharImageButtonClicked}">
-        <Panel>
-          <Image Name="ButtonSelectionImageCharacterScreen"
-                 Source="/Assets/Images/CharacterScreen/button_selection_character_screen.png"
-                 Stretch="None"
-                 Opacity="100"/>
-        </Panel>
       </Button>
     </Grid>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,-15,0,0" >

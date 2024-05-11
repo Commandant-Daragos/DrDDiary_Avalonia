@@ -12,6 +12,7 @@
   <ItemGroup>
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_clicked.png" />
     <AvaloniaResource Remove="Assets\Images\Buttons\dragon_generic_button_not_clicked.png" />
+    <AvaloniaResource Remove="Assets\Images\CharacterScreen\button_selection_character_screen.png" />
     <AvaloniaResource Remove="Assets\Languages\languageEN.resx" />
     <AvaloniaResource Remove="Assets\Languages\languageSK.resx" />
     <AvaloniaResource Remove="Assets\Sounds\button_click.wav" />
@@ -49,6 +50,9 @@
     <EmbeddedResource Include="Assets\Images\Buttons\dragon_generic_button_not_clicked.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Images\CharacterScreen\button_selection_character_screen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -63,9 +67,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Update="Assets\Images\CharacterScreen\button_selection_character_screen.png">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </AvaloniaResource>
     <AvaloniaResource Update="Assets\Images\Opening\dragon_head_new_hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AvaloniaResource>
