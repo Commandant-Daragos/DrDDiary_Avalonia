@@ -9,5 +9,9 @@ namespace DrDDiary.Models
 {
     public class NotesModel : BaseModel, INotesModel
     {
+        public NotesModel()
+        {
+
+        }
     }
 }

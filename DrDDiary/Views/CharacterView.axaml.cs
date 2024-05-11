@@ -49,7 +49,23 @@ namespace DrDDiary.Views
 
         private void SetTextBoxElementsPreviewEvent()
         {
+            //Basic Classes
             lvlFighter.KeyDown += LevelTextBox_KeyDown;
+            lvlTrickster.KeyDown += LevelTextBox_KeyDown;
+            lvlHunter.KeyDown += LevelTextBox_KeyDown;
+            lvlMedicaster.KeyDown += LevelTextBox_KeyDown;
+            lvlConjurer.KeyDown += LevelTextBox_KeyDown;    
+            //Advanced Classes
+            lvlWarrior.KeyDown += LevelTextBox_KeyDown;
+            lvlBorderGuard.KeyDown += LevelTextBox_KeyDown;
+            lvlScholar.KeyDown += LevelTextBox_KeyDown;
+            lvlWizard.KeyDown += LevelTextBox_KeyDown;
+            lvlScout.KeyDown += LevelTextBox_KeyDown;
+            lvlRobber.KeyDown += LevelTextBox_KeyDown;
+            lvlMage.KeyDown += LevelTextBox_KeyDown;
+            lvlDruid.KeyDown += LevelTextBox_KeyDown;
+            lvlShaman.KeyDown += LevelTextBox_KeyDown;
+            lvlAlchemist.KeyDown += LevelTextBox_KeyDown;
         }
 
         /// <summary>

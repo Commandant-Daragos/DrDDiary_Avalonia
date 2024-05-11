@@ -9,5 +9,9 @@ namespace DrDDiary.Models
 {
     public class InventoryModel : BaseModel, IInventoryModel
     {
+        public InventoryModel()
+        {
+            
+        }
     }
 }

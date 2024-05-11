@@ -9,5 +9,9 @@ namespace DrDDiary.Models
 {
     public class SkillModel : BaseModel, ISkillModel
     {
+        public SkillModel()
+        {
+            
+        }
     }
 }

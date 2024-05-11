@@ -23,6 +23,7 @@
            HorizontalAlignment="Left"
            FontSize="30"/>
     <TextBox Name="NameOfCharacter_TextBox"
+             Text="{Binding NameTextBoxValue, Mode=TwoWay}}"
              Width="400"
              Height="30"
              MaxLength="45"
@@ -36,6 +37,7 @@
            HorizontalAlignment="Left"
            FontSize="30"/>
     <TextBox Name="RaceOfCharacter_TextBox"
+             Text="{Binding RaceTextBoxValue, Mode=TwoWay}}"
              Width="300"
              Height="30"
              MaxLength="20"
@@ -58,6 +60,7 @@
               ZIndex="1"
               HorizontalAlignment="Left"
               Margin="200,-100,0,0"
+              Content="{Binding ImageButtonContent}"
               Command="{Binding SelectCharImageButtonClicked}">
         <Panel>
           <Image Name="ButtonSelectionImageCharacterScreen"
@@ -76,10 +79,10 @@
         </Grid.ColumnDefinitions>
         <Label Name="lblFighter"
                Grid.Column="0"
-               Foreground="{Binding TextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
+               Foreground="{Binding LvlFighterTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlFighter"
                  Grid.Column="1"
-                 Text="{Binding TextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
+                 Text="{Binding LvlFighterTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -90,9 +93,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblTrickster"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlTricksterTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlTrickster"
                  Grid.Column="1"
+                 Text="{Binding LvlTricksterTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -103,9 +108,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblHunter"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlHunterTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlHunter"
                  Grid.Column="1"
+                 Text="{Binding LvlHunterTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -116,9 +123,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblMedicaster"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlMedicasterTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlMedicaster"
                  Grid.Column="1"
+                 Text="{Binding LvlMedicasterTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -129,9 +138,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblConjurer"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlConjurerTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlConjurer"
                  Grid.Column="1"
+                 Text="{Binding LvlConjurerTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -144,9 +155,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblWarrior"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlWarriorTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlWarrior"
                  Grid.Column="1"
+                 Text="{Binding LvlWarriorTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -157,9 +170,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblBorderGuard"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlBorderGuardTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlBorderGuard"
                  Grid.Column="1"
+                 Text="{Binding LvlBorderGuardTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -170,9 +185,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblScholar"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlScholarTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlScholar"
                  Grid.Column="1"
+                 Text="{Binding LvlScholarTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -183,9 +200,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblWizard"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlWizardTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlWizard"
                  Grid.Column="1"
+                 Text="{Binding LvlWizardTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -196,9 +215,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblScout"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlScoutTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlScout"
                  Grid.Column="1"
+                 Text="{Binding LvlScoutTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -209,9 +230,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblRobber"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlRobberTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlRobber"
                  Grid.Column="1"
+                 Text="{Binding LvlRobberTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -222,9 +245,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblMage"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlMageTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlMage"
                  Grid.Column="1"
+                 Text="{Binding LvlMageTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -235,9 +260,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblDruid"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlDruidTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlDruid"
                  Grid.Column="1"
+                 Text="{Binding LvlDruidTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -248,9 +275,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblShaman"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlShamanTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlShaman"
                  Grid.Column="1"
+                 Text="{Binding LvlShamanTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
@@ -261,9 +290,11 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblAlchemist"
-               Grid.Column="0"/>
+               Grid.Column="0"
+               Foreground="{Binding LvlAlchemistTextBoxValue, Converter={StaticResource ValueToColorConverter}}"/>
         <TextBox Name="lvlAlchemist"
                  Grid.Column="1"
+                 Text="{Binding LvlAlchemistTextBoxValue, Mode=TwoWay, Converter={StaticResource NumericConverter}}"
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>

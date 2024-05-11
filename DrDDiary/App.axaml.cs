@@ -16,8 +16,8 @@ namespace DrDDiary;
 
 public partial class App : Application
 {
-    public static Window MainWindowInstance { get; private set; }
-    private MainWindowViewModel _mainWindowViewModel;
+    public static Window? MainWindowInstance { get; private set; }
+    private MainWindowViewModel? _mainWindowViewModel;
 
 
     public override void Initialize()
@@ -60,6 +60,13 @@ public partial class App : Application
 
     private void ConfigureServices(IServiceCollection services)
     {
+        // Register Views
+        services.AddSingleton<CharacterView>()
+                .AddSingleton<InventoryView>()
+                .AddSingleton<SkillView>()
+                .AddSingleton<LoreView>()
+                .AddSingleton<NotesView>();
+
         // Register view models
         //services.AddSingleton<>();
         services.AddSingleton<MainWindowViewModel>()
@@ -70,12 +77,12 @@ public partial class App : Application
                 .AddSingleton<LoreViewModel>()
                 .AddSingleton<NotesViewModel>();
 
-        // Register other services as needed
-        services.AddSingleton<ICharacterModel, CharacterModel>()
-                .AddSingleton<IInventoryModel, InventoryModel>()
-                .AddSingleton<ISkillModel, SkillModel>()
-                .AddSingleton<ILoreModel, LoreModel>()
-                .AddSingleton<INotesModel, NotesModel>()
+        // Register Models
+        services.AddSingleton<CharacterModel>()
+                .AddSingleton<InventoryModel>()
+                .AddSingleton<SkillModel>()
+                .AddSingleton<LoreModel>()
+                .AddSingleton<NotesModel>()
                 .AddSingleton<Player>();
     }
 }

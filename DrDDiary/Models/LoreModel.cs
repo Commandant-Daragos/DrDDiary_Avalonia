@@ -9,5 +9,9 @@ namespace DrDDiary.Models
 {
     public class LoreModel : BaseModel,ILoreModel
     {
+        public LoreModel()
+        {
+            
+        }
     }
 }
