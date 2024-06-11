@@ -1,16 +1,21 @@
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Media.Imaging;
 using DrDDiary.Helpers;
+using System.IO;
 
 namespace DrDDiary.Views
 {
     public partial class CharacterView : UserControl
     {
+        private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
+
         public CharacterView()
         {
             InitializeComponent();
             SetLabelContent();
             SetTextBoxElementsPreviewEvent();
+            //SetBasicImageButtonConten();
 
             LanguageEventHandler.LanguageEvent += ReloadViewLabels;
         }
@@ -42,7 +47,7 @@ namespace DrDDiary.Views
             lblAlchemist.Content = LanguageManager.GetString("lblAlchemist");
         }
 
-        private void ReloadViewLabels(object sender, LanguageEvent e)
+        private void ReloadViewLabels(object ?sender, LanguageEvent e)
         {
             SetLabelContent();
         }
@@ -73,7 +78,7 @@ namespace DrDDiary.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LevelTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void LevelTextBox_KeyDown(object ?sender, KeyEventArgs e)
         {
             if (!((e.Key >= Key.D0 && e.Key <= Key.D9) ||
                   (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) ||
@@ -81,6 +86,14 @@ namespace DrDDiary.Views
             {
                 e.Handled = true; // Reject input
             }
+        }
+
+        /// <summary>
+        /// Set default image content for button in character image select area
+        /// </summary>
+        private void SetBasicImageButtonConten()
+        {
+            ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGESELECT)) };
         }
     }
 }

@@ -63,6 +63,12 @@
               Content="{Binding ImageButtonContent}"
               Command="{Binding SelectCharImageButtonClicked}">
       </Button>
+      <Button Name="CogwheelButton"
+              Margin="192,270,0,0"
+              MaxWidth="45"
+              MaxHeight="45"
+              ZIndex="3"
+              Command="{Binding EnableImageSelectionButton}"/>
     </Grid>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,-15,0,0" >
       <Label Name="ClassesBasic"/>

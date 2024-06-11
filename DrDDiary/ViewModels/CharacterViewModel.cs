@@ -23,6 +23,8 @@ namespace DrDDiary.ViewModels
         private CharacterView characterView;
         private CharacterModel characterModel;
         private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
+        private const string IMAGECOGWHEELUNCLICKED = "Assets/Images/CharacterScreen/Cogwheel_normal_unclicked.png";
+        private const string IMAGECOGWHEELCLICKED = "Assets/Images/CharacterScreen/Cogwheel_normal_clicked.png";
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
@@ -34,6 +36,8 @@ namespace DrDDiary.ViewModels
             characterModel = charModel;
 
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
+            EnableImageSelectionButton = ReactiveCommand.Create(EnableCharacterImageButton);
+            characterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELUNCLICKED)) };
 
             characterView.DataContext = this;
 
@@ -297,6 +301,11 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public ReactiveCommand<Unit, Unit> SelectCharImageButtonClicked { get; set; }
 
+        /// <summary>
+        /// Enable character image button selection
+        /// </summary>
+        public ReactiveCommand<Unit, Unit> EnableImageSelectionButton { get; set; }
+
         private void OpenSelectionWindow()
         {
             //Process.Start("explorer.exe");
@@ -342,6 +351,20 @@ namespace DrDDiary.ViewModels
             else
             {
                 characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+            }
+        }
+
+        private void EnableCharacterImageButton()
+        {
+            if (!characterView.ButtonSelectionCharacterScreen.IsEnabled)
+            {
+                characterView.ButtonSelectionCharacterScreen.IsEnabled = true;
+                characterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELCLICKED)) };
+            }
+            else
+            {
+                characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+                characterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELUNCLICKED)) };
             }
         }
     }
