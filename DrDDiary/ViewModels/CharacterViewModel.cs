@@ -54,7 +54,7 @@ namespace DrDDiary.ViewModels
             set
             {
                 characterModel.Name = value;
-                OnPropertyChanged(nameof(LvlFighterTextBoxValue));
+                OnPropertyChanged(nameof(NameTextBoxValue));
             }
         }
 
@@ -67,7 +67,7 @@ namespace DrDDiary.ViewModels
             set
             {
                 characterModel.Race = value;
-                OnPropertyChanged(nameof(LvlFighterTextBoxValue));
+                OnPropertyChanged(nameof(RaceTextBoxValue));
             }
         }
 
@@ -80,7 +80,7 @@ namespace DrDDiary.ViewModels
             set
             {
                 characterModel.Image = value;
-                OnPropertyChanged(nameof(LvlFighterTextBoxValue));
+                OnPropertyChanged(nameof(ImageButtonContent));
             }
         }
         #endregion
@@ -285,6 +285,16 @@ namespace DrDDiary.ViewModels
         public UserControl GetView()
         {
             return characterView;
+        }
+
+        public CharacterModel GetCharacterModel()
+        {
+            return characterModel;
+        }
+
+        public void SetCharacterModel(CharacterModel charModel)
+        {
+            characterModel = charModel;
         }
 
         /// <summary>

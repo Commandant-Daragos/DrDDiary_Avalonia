@@ -2,6 +2,8 @@
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using DrDDiary.Helpers;
+using DrDDiary.Models.PlayerModel;
+using DrDDiary.Serializer;
 using DrDDiary.Views;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
@@ -20,11 +22,18 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     //private IServiceProvider _serviceProvider;
     //private readonly MainViewModel _mainViewModel;
     //public event EventHandler LanguageChanged;
-    private readonly CharacterViewModel _characterViewModel;
-    private readonly InventoryViewModel _inventoryViewModel;
-    private readonly SkillViewModel _skillViewModel;
-    private readonly LoreViewModel _loreViewModel;
-    private readonly NotesViewModel _notesViewModel;
+    private CharacterViewModel _characterViewModel;
+    private InventoryViewModel _inventoryViewModel;
+    private SkillViewModel _skillViewModel;
+    private LoreViewModel _loreViewModel;
+    private NotesViewModel _notesViewModel;
+
+    private Player _player;
+    public Player Player
+    {
+        get => _player;
+        set => _player = value;
+    }
 
 
 
@@ -127,14 +136,24 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
         //WorkflowManager.CreateViewModels();
         //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("CharacterUC"));
         //SetCurrentView(_serviceProvider.GetService<CharacterViewModel>().GetView());
+        _player = new Player(_characterViewModel.GetCharacterModel(), _inventoryViewModel.GetInventoryModel(), _skillViewModel.GetSkillModel(), _loreViewModel.GetLoreModel(), _notesViewModel.GetNotesModel());
         SetCurrentView(_characterViewModel.GetView());
         Visibility = true;
         //LanguageChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private void LoadCharacter()
+    private async void LoadCharacter()
     {
-        throw new NotImplementedException();
+        _player = await PlayerStorage.LoadPlayerAsync();
+        _characterViewModel.SetCharacterModel(_player.CharacterModel);
+        //_characterViewModel = cVM;
+        //_inventoryViewModel = iVM;
+        //_skillViewModel = sVM;
+        //_loreViewModel = lVM;
+        //_notesViewModel = nVM;
+        Visibility = true;
+        SetCurrentView(_characterViewModel.GetView());
+        //throw new NotImplementedException();
     }
     /// <summary>
     /// Diary Player buttons

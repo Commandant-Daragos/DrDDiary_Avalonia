@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.Models
 {
+    [Serializable]
     public class SkillModel : BaseModel, ISkillModel
     {
         public SkillModel()

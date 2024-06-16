@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using DrDDiary.Interfaces;
+using DrDDiary.Models;
 using DrDDiary.Views;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,24 @@ namespace DrDDiary.ViewModels
     public class SkillViewModel : ViewModelBase, IUserControlViewModel
     {
         private SkillView skillView;
+        private SkillModel skillModel;
 
-        public SkillViewModel()
+        public SkillViewModel(SkillView sView, SkillModel sModel)
         {
-            skillView = new SkillView() { DataContext = this };
+            skillView = sView;
+            skillModel = sModel;    
+
+            skillView.DataContext = this;
         }
 
         public UserControl GetView()
         {
             return skillView;
         }
+
+        public SkillModel GetSkillModel()
+        {
+            return skillModel;
+        }  
     }
 }

@@ -3,6 +3,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using DrDDiary.Helper;
 using DrDDiary.Helpers;
+using DrDDiary.Serializer;
 using DrDDiary.ViewModels;
 using System;
 using System.IO;
@@ -77,5 +78,11 @@ public partial class MainWindow : Window
     {
         SK_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECLICKED)) };
         EN_Button.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGENOTCLICKED)) };
+    }
+
+    private async void Window_Closing(object? sender, Avalonia.Controls.WindowClosingEventArgs e)
+    {
+        var mainWindowViewModel = (MainWindowViewModel)DataContext;
+        await PlayerStorage.SavePlayerAsync(mainWindowViewModel.Player);
     }
 }

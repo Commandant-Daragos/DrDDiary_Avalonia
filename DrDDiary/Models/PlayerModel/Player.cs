@@ -1,4 +1,5 @@
 ﻿using DrDDiary.Interfaces.PlayerInterfaces;
+using DrDDiary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,27 +8,25 @@ using System.Threading.Tasks;
 
 namespace DrDDiary.Models.PlayerModel
 {
+    [Serializable]
     public class Player
     {
-        private readonly ICharacterModel _characterModel;
-        private readonly IInventoryModel _inventoryModel;
-        private readonly ISkillModel _skillModel;
-        private readonly ILoreModel _loreModel;
-        private readonly INotesModel _notesModel;
+        public CharacterModel CharacterModel { get; set; }
+        public InventoryModel InventoryModel { get; set; }
+        public SkillModel SkillModel { get; set; }
+        public LoreModel LoreModel { get; set; }
+        public NotesModel NotesModel { get; set; }
 
-        public Player(ICharacterModel characterModel, IInventoryModel inventoryModel, ISkillModel skillModel, ILoreModel loreModel, INotesModel notesModel)
+        public Player(CharacterModel characterModel, InventoryModel inventoryModel, SkillModel skillModel, LoreModel loreModel, NotesModel notesModel)
         {
-            _characterModel = characterModel;
-            _inventoryModel = inventoryModel;
-            _skillModel = skillModel;
-            _loreModel = loreModel;
-            _notesModel = notesModel;
+            CharacterModel = characterModel;
+            InventoryModel = inventoryModel;
+            SkillModel = skillModel;
+            LoreModel = loreModel;
+            NotesModel = notesModel;
         }
 
-        public ICharacterModel CharacterModel { get {  return _characterModel; } }
-        public IInventoryModel InventoryModel { get { return _inventoryModel; } }
-        public ISkillModel SkillModel { get { return _skillModel; } }
-        public ILoreModel loreModel1 { get { return _loreModel; } }
-        public INotesModel NotesModel { get { return _notesModel; } }   
+        // Parameterless constructor for serialization, is needed ?
+        public Player() { }
     }
 }

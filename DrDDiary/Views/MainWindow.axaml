@@ -11,7 +11,8 @@
         WindowStartupLocation="CenterScreen"
         Icon="/Assets/AppIcon/app_icon.png"
         Title="DrDDiary"
-        CanResize="False">
+        CanResize="False"
+        Closing="Window_Closing">
   <Grid>
     <!--Frame image of application-->
     <Image Source="/Assets/Images/BasicBackgrounds/basic_frame_background.png" Stretch="None" ZIndex="2" IsHitTestVisible="False"/>
@@ -96,7 +97,8 @@
           <Button Name="loadButton"
                   Margin="160,0,0,0"
                   PointerEntered="Button_PointerEntered"
-                  PointerExited="Button_PointerExited">
+                  PointerExited="Button_PointerExited"
+                  Command="{Binding LoadCharButtonClicked}">
             <Panel>
               <Image Classes="DragonHeadImage"/>
             </Panel>
