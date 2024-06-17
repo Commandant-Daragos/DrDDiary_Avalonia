@@ -145,7 +145,8 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     private async void LoadCharacter()
     {
         _player = await PlayerStorage.LoadPlayerAsync();
-        _characterViewModel.SetCharacterModel(_player.CharacterModel);
+        _characterViewModel.CharacterModel = _player.CharacterModel;
+        _characterViewModel.CharacterView.DataContext = _characterViewModel; 
         //_characterViewModel = cVM;
         //_inventoryViewModel = iVM;
         //_skillViewModel = sVM;

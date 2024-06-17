@@ -20,8 +20,37 @@ namespace DrDDiary.ViewModels
 {
     public class CharacterViewModel : ViewModelBase, IUserControlViewModel, INotifyPropertyChanged
     {
-        private CharacterView characterView;
-        private CharacterModel characterModel;
+        private CharacterView _characterView;
+        public CharacterView CharacterView 
+        {  
+            get => _characterView; 
+            set 
+            {
+                if (_characterView != value)
+                {
+                    _characterView = value;
+                }
+            }
+        }
+
+        private CharacterModel _characterModel;
+        public CharacterModel CharacterModel
+        {
+            get => _characterModel;
+            set
+            {
+                if (_characterModel != value)
+                {
+                    _characterModel = value;
+                    OnPropertyChanged(nameof(CharacterModel));
+                    OnPropertyChanged(nameof(NameTextBoxValue));
+                    OnPropertyChanged(nameof(RaceTextBoxValue));
+                    OnPropertyChanged(nameof(LvlFighterTextBoxValue));
+                    // Add OnPropertyChanged calls for other dependent properties
+                }
+            }
+        }
+
         private const string IMAGESELECT = "Assets/Images/CharacterScreen/button_selection_character_screen.png";
         private const string IMAGECOGWHEELUNCLICKED = "Assets/Images/CharacterScreen/Cogwheel_normal_unclicked.png";
         private const string IMAGECOGWHEELCLICKED = "Assets/Images/CharacterScreen/Cogwheel_normal_clicked.png";
@@ -32,14 +61,14 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public CharacterViewModel(CharacterView charView, CharacterModel charModel)
         {
-            characterView = charView;
-            characterModel = charModel;
+            CharacterView = charView;
+            CharacterModel = charModel;
 
             SelectCharImageButtonClicked = ReactiveCommand.Create(OpenSelectionWindow);
             EnableImageSelectionButton = ReactiveCommand.Create(EnableCharacterImageButton);
-            characterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELUNCLICKED)) };
+            CharacterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELUNCLICKED)) };
 
-            characterView.DataContext = this;
+            CharacterView.DataContext = this;
 
             SetCharacterButtonSelectionImageToDefaultIfNotPresent();
         }
@@ -50,10 +79,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public string? NameTextBoxValue
         {
-            get { return characterModel.Name; }
+            get { return CharacterModel.Name; }
             set
             {
-                characterModel.Name = value;
+                CharacterModel.Name = value;
                 OnPropertyChanged(nameof(NameTextBoxValue));
             }
         }
@@ -63,10 +92,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public string? RaceTextBoxValue
         {
-            get { return characterModel.Race; }
+            get { return CharacterModel.Race; }
             set
             {
-                characterModel.Race = value;
+                CharacterModel.Race = value;
                 OnPropertyChanged(nameof(RaceTextBoxValue));
             }
         }
@@ -76,10 +105,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public Image? ImageButtonContent
         {
-            get { return characterModel.Image; }
+            get { return CharacterModel.Image; }
             set
             {
-                characterModel.Image = value;
+                CharacterModel.Image = value;
                 OnPropertyChanged(nameof(ImageButtonContent));
             }
         }
@@ -90,10 +119,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlFighterTextBoxValue
         {
-            get { return characterModel.LvlFighter; }
+            get { return CharacterModel.LvlFighter; }
             set
             {
-                characterModel.LvlFighter = value;
+                CharacterModel.LvlFighter = value;
                 OnPropertyChanged(nameof(LvlFighterTextBoxValue));
             }
         }
@@ -103,10 +132,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlTricksterTextBoxValue
         {
-            get { return characterModel.LvlTrickster; }
+            get { return CharacterModel.LvlTrickster; }
             set
             {
-                characterModel.LvlTrickster = value;
+                CharacterModel.LvlTrickster = value;
                 OnPropertyChanged(nameof(LvlTricksterTextBoxValue));
             }
         }
@@ -116,10 +145,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlHunterTextBoxValue
         {
-            get { return characterModel.LvlHunter; }
+            get { return CharacterModel.LvlHunter; }
             set
             {
-                characterModel.LvlHunter = value;
+                CharacterModel.LvlHunter = value;
                 OnPropertyChanged(nameof(LvlHunterTextBoxValue));
             }
         }
@@ -129,10 +158,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlMedicasterTextBoxValue
         {
-            get { return characterModel.LvlMedicaster; }
+            get { return CharacterModel.LvlMedicaster; }
             set
             {
-                characterModel.LvlMedicaster = value;
+                CharacterModel.LvlMedicaster = value;
                 OnPropertyChanged(nameof(LvlMedicasterTextBoxValue));
             }
         }
@@ -142,10 +171,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlConjurerTextBoxValue
         {
-            get { return characterModel.LvlConjurer; }
+            get { return CharacterModel.LvlConjurer; }
             set
             {
-                characterModel.LvlConjurer = value;
+                CharacterModel.LvlConjurer = value;
                 OnPropertyChanged(nameof(LvlConjurerTextBoxValue));
             }
         }
@@ -156,10 +185,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlWarriorTextBoxValue
         {
-            get { return characterModel.LvlWarrior; }
+            get { return CharacterModel.LvlWarrior; }
             set
             {
-                characterModel.LvlWarrior = value;
+                CharacterModel.LvlWarrior = value;
                 OnPropertyChanged(nameof(LvlWarriorTextBoxValue));
             }
         }
@@ -169,10 +198,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlBorderGuardTextBoxValue
         {
-            get { return characterModel.LvlBorderGuard; }
+            get { return CharacterModel.LvlBorderGuard; }
             set
             {
-                characterModel.LvlBorderGuard = value;
+                CharacterModel.LvlBorderGuard = value;
                 OnPropertyChanged(nameof(LvlBorderGuardTextBoxValue));
             }
         }
@@ -182,10 +211,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlScholarTextBoxValue
         {
-            get { return characterModel.LvlScholar; }
+            get { return CharacterModel.LvlScholar; }
             set
             {
-                characterModel.LvlScholar = value;
+                CharacterModel.LvlScholar = value;
                 OnPropertyChanged(nameof(LvlScholarTextBoxValue));
             }
         }
@@ -195,10 +224,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlWizardTextBoxValue
         {
-            get { return characterModel.LvlWizard; }
+            get { return CharacterModel.LvlWizard; }
             set
             {
-                characterModel.LvlWizard = value;
+                CharacterModel.LvlWizard = value;
                 OnPropertyChanged(nameof(LvlWizardTextBoxValue));
             }
         }
@@ -208,10 +237,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlScoutTextBoxValue
         {
-            get { return characterModel.LvlScout; }
+            get { return CharacterModel.LvlScout; }
             set
             {
-                characterModel.LvlScout = value;
+                CharacterModel.LvlScout = value;
                 OnPropertyChanged(nameof(LvlScoutTextBoxValue));
             }
         }
@@ -221,10 +250,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlRobberTextBoxValue
         {
-            get { return characterModel.LvlRobber; }
+            get { return CharacterModel.LvlRobber; }
             set
             {
-                characterModel.LvlRobber = value;
+                CharacterModel.LvlRobber = value;
                 OnPropertyChanged(nameof(LvlRobberTextBoxValue));
             }
         }
@@ -234,10 +263,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlMageTextBoxValue
         {
-            get { return characterModel.LvlMage; }
+            get { return CharacterModel.LvlMage; }
             set
             {
-                characterModel.LvlMage = value;
+                CharacterModel.LvlMage = value;
                 OnPropertyChanged(nameof(LvlMageTextBoxValue));
             }
         }
@@ -247,10 +276,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlDruidTextBoxValue
         {
-            get { return characterModel.LvlDruid; }
+            get { return CharacterModel.LvlDruid; }
             set
             {
-                characterModel.LvlDruid = value;
+                CharacterModel.LvlDruid = value;
                 OnPropertyChanged(nameof(LvlDruidTextBoxValue));
             }
         }
@@ -260,10 +289,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlShamanTextBoxValue
         {
-            get { return characterModel.LvlShaman; }
+            get { return CharacterModel.LvlShaman; }
             set
             {
-                characterModel.LvlShaman = value;
+                CharacterModel.LvlShaman = value;
                 OnPropertyChanged(nameof(LvlShamanTextBoxValue));
             }
         }
@@ -273,10 +302,10 @@ namespace DrDDiary.ViewModels
         /// </summary>
         public int? LvlAlchemistTextBoxValue
         {
-            get { return characterModel.LvlAlchemist; }
+            get { return CharacterModel.LvlAlchemist; }
             set
             {
-                characterModel.LvlAlchemist = value;
+                CharacterModel.LvlAlchemist = value;
                 OnPropertyChanged(nameof(LvlAlchemistTextBoxValue));
             }
         }
@@ -284,18 +313,18 @@ namespace DrDDiary.ViewModels
 
         public UserControl GetView()
         {
-            return characterView;
+            return CharacterView;
         }
 
         public CharacterModel GetCharacterModel()
         {
-            return characterModel;
+            return CharacterModel;
         }
 
-        public void SetCharacterModel(CharacterModel charModel)
-        {
-            characterModel = charModel;
-        }
+        //public void SetCharacterModel(CharacterModel charModel)
+        //{
+        //    CharacterModel = charModel;
+        //}
 
         /// <summary>
         /// Property Changed invoke metod
@@ -344,8 +373,8 @@ namespace DrDDiary.ViewModels
                         // Update UI elements here
                         if (ImagePath is not null)
                         {   ImageButtonContent = new Image { Source = new Bitmap(ImagePath) };
-                            characterView.ButtonSelectionCharacterScreen.Content = ImageButtonContent;
-                            characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+                            CharacterView.ButtonSelectionCharacterScreen.Content = ImageButtonContent;
+                            CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
                         }
                     });
                 }
@@ -354,27 +383,27 @@ namespace DrDDiary.ViewModels
 
         private void SetCharacterButtonSelectionImageToDefaultIfNotPresent()
         {
-            if (characterModel.Image == null)
+            if (CharacterModel.Image == null)
             {
-                characterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGESELECT)) };
+                CharacterView.ButtonSelectionCharacterScreen.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGESELECT)) };
             }
             else
             {
-                characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+                CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
             }
         }
 
         private void EnableCharacterImageButton()
         {
-            if (!characterView.ButtonSelectionCharacterScreen.IsEnabled)
+            if (!CharacterView.ButtonSelectionCharacterScreen.IsEnabled)
             {
-                characterView.ButtonSelectionCharacterScreen.IsEnabled = true;
-                characterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELCLICKED)) };
+                CharacterView.ButtonSelectionCharacterScreen.IsEnabled = true;
+                CharacterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELCLICKED)) };
             }
             else
             {
-                characterView.ButtonSelectionCharacterScreen.IsEnabled = false;
-                characterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELUNCLICKED)) };
+                CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+                CharacterView.CogwheelButton.Content = new Image { Source = new Bitmap(Path.Combine(Directory.GetCurrentDirectory(), IMAGECOGWHEELUNCLICKED)) };
             }
         }
     }
