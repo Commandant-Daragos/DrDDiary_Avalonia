@@ -45,6 +45,13 @@ namespace DrDDiary.ViewModels
                     OnPropertyChanged(nameof(CharacterModel));
                     OnPropertyChanged(nameof(NameTextBoxValue));
                     OnPropertyChanged(nameof(RaceTextBoxValue));
+
+                    if (_characterModel.Image != null)
+                    {
+                        OnPropertyChanged(nameof(ImageButtonContent));
+                        CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+                    }
+
                     OnPropertyChanged(nameof(LvlFighterTextBoxValue));
                     // Add OnPropertyChanged calls for other dependent properties
                 }
@@ -103,7 +110,7 @@ namespace DrDDiary.ViewModels
         /// <summary>
         /// Image of character
         /// </summary>
-        public Image? ImageButtonContent
+        public Bitmap? ImageButtonContent
         {
             get { return CharacterModel.Image; }
             set
@@ -353,9 +360,13 @@ namespace DrDDiary.ViewModels
 
         private void OpenFileExplorer()
         {
-            var openFileDialog = new OpenFileDialog();
-            //openFileDialog.Title = "Select Image";
-            openFileDialog.Filters.Add(new FileDialogFilter() { Name = "Images", Extensions = { "jpg", "jpeg", "png", "gif", "bmp" } });
+            var openFileDialog = new OpenFileDialog
+            {
+                Filters = new List<FileDialogFilter>
+        {
+            new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "gif", "bmp" } }
+        }
+            };
 
             // Show the file dialog asynchronously
             var task = openFileDialog.ShowAsync(App.MainWindowInstance);
@@ -363,20 +374,31 @@ namespace DrDDiary.ViewModels
             // Wait for the user to select a file
             task.ContinueWith(t =>
             {
-                if (t.IsCompletedSuccessfully && t.Result.FirstOrDefault() != null)
+                if (t.IsCompletedSuccessfully && t.Result != null && t.Result.Length > 0)
                 {
-                    var ImagePath = t.Result.FirstOrDefault(); // Get the first selected file
+                    var imagePath = t.Result.FirstOrDefault(); // Get the first selected file
 
-                    // Perform UI updates from a non-UI thread
-                    Dispatcher.UIThread.InvokeAsync(() =>
+                    if (!string.IsNullOrEmpty(imagePath))
                     {
-                        // Update UI elements here
-                        if (ImagePath is not null)
-                        {   ImageButtonContent = new Image { Source = new Bitmap(ImagePath) };
-                            CharacterView.ButtonSelectionCharacterScreen.Content = ImageButtonContent;
-                            CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
-                        }
-                    });
+                        // Perform UI updates from a non-UI thread
+                        Dispatcher.UIThread.InvokeAsync(() =>
+                        {
+                            try
+                            {
+                                var bitmap = new Bitmap(imagePath);
+
+                                // Update UI elements here
+                                ImageButtonContent = bitmap;
+                                CharacterView.ButtonSelectionCharacterScreen.Content = new Image { Source = bitmap };
+                                CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+                            }
+                            catch (Exception ex)
+                            {
+                                // Handle exceptions (e.g., file not found, invalid image format)
+                                Console.WriteLine($"Error loading image: {ex.Message}");
+                            }
+                        });
+                    }
                 }
             });
         }

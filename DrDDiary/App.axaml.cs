@@ -11,6 +11,7 @@ using System.Numerics;
 using System;
 using DrDDiary.Models.PlayerModel;
 using Avalonia.Controls;
+using System.Threading.Tasks;
 
 namespace DrDDiary;
 
@@ -84,5 +85,12 @@ public partial class App : Application
                 .AddSingleton<LoreModel>()
                 .AddSingleton<NotesModel>()
                 .AddSingleton<Player>();
+
+        Create().GetAwaiter().GetResult();
+    }
+
+    public async Task Create()
+    {
+
     }
 }

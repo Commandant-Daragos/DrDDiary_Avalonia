@@ -137,8 +137,8 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
         //WorkflowManager.mainWindowViewModel.SetCurrentView(WorkflowManager.GetView("CharacterUC"));
         //SetCurrentView(_serviceProvider.GetService<CharacterViewModel>().GetView());
         _player = new Player(_characterViewModel.GetCharacterModel(), _inventoryViewModel.GetInventoryModel(), _skillViewModel.GetSkillModel(), _loreViewModel.GetLoreModel(), _notesViewModel.GetNotesModel());
-        SetCurrentView(_characterViewModel.GetView());
         Visibility = true;
+        SetCurrentView(_characterViewModel.GetView());
         //LanguageChanged?.Invoke(this, EventArgs.Empty);
     }
 
@@ -146,7 +146,8 @@ public class MainWindowViewModel : ViewModelBase, INotifyPropertyChanged
     {
         _player = await PlayerStorage.LoadPlayerAsync();
         _characterViewModel.CharacterModel = _player.CharacterModel;
-        _characterViewModel.CharacterView.DataContext = _characterViewModel; 
+        //_characterViewModel.ImageButtonContent = _player.CharacterModel.Image;
+        //_characterViewModel.CharacterView.DataContext = _characterViewModel; 
         //_characterViewModel = cVM;
         //_inventoryViewModel = iVM;
         //_skillViewModel = sVM;

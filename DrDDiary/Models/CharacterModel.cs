@@ -1,9 +1,12 @@
 ﻿using Avalonia.Controls;
+using DrDDiary.Helpers.ValueConverter;
 using DrDDiary.Interfaces.PlayerInterfaces;
+using Avalonia.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DrDDiary.Models
@@ -47,8 +50,10 @@ namespace DrDDiary.Models
         /// <summary>
         /// Image of character
         /// </summary>
-        private Image? _image;
-        public Image? Image
+        private Bitmap? _image;
+
+        [JsonConverter(typeof(ImageConverter))]
+        public Bitmap? Image
         {
             get { return _image; }
             set

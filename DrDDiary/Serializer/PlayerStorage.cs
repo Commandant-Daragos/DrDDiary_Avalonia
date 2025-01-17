@@ -1,4 +1,5 @@
-﻿using DrDDiary.Models.PlayerModel;
+﻿using DrDDiary.Helpers.ValueConverter;
+using DrDDiary.Models.PlayerModel;
 using System;
 using System.IO;
 using System.Text.Json;
@@ -18,7 +19,10 @@ namespace DrDDiary.Serializer
             {
                 WriteIndented = true,
                 // This is important for deserializing interfaces back to concrete types
-                Converters = { new JsonStringEnumConverter() }
+                Converters = {
+                               new JsonStringEnumConverter(),
+                               new ImageConverter()
+                             }
             };
 
             var json = JsonSerializer.Serialize(player, options);
@@ -40,7 +44,10 @@ namespace DrDDiary.Serializer
             var json = await File.ReadAllTextAsync("Alibaba.json");
             var options = new JsonSerializerOptions
             {
-                Converters = { new JsonStringEnumConverter() }
+                Converters = {
+                               new JsonStringEnumConverter(),
+                               new ImageConverter()
+                             }
             };
 
             return JsonSerializer.Deserialize<Player>(json, options);
