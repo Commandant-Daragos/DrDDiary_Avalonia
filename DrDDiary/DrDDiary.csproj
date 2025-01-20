@@ -33,6 +33,8 @@
     <None Remove="Assets\Images\CharacterScreen\Cogwheel_normal_unclicked.png" />
     <None Remove="Assets\Images\CharacterScreen\frame_background_character_screen.png" />
     <None Remove="Assets\Images\CharacterScreen\Medieval Knight.jpg" />
+    <None Remove="Assets\Images\Checkboxes\dragon_frame_checkbox_disabled.png" />
+    <None Remove="Assets\Images\Checkboxes\dragon_frame_checkbox_normall.png" />
     <None Remove="Assets\Sounds\button_click.wav" />
   </ItemGroup>
 

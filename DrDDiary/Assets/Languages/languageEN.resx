@@ -148,6 +148,9 @@
   <data name="lblHunter" xml:space="preserve">
     <value>Hunter:</value>
   </data>
+  <data name="lblInfluence" xml:space="preserve">
+    <value>Influence:</value>
+  </data>
   <data name="lblMage" xml:space="preserve">
     <value>Mage:</value>
   </data>
@@ -173,6 +176,12 @@
   <data name="lblShaman" xml:space="preserve">
     <value>Shaman:</value>
   </data>
+  <data name="lblSoul" xml:space="preserve">
+    <value>Soul:</value>
+  </data>
+  <data name="lblStrength" xml:space="preserve">
+    <value>Strength:</value>
+  </data>
   <data name="lblTrickster" xml:space="preserve">
     <value>Trickster:</value>
   </data>
@@ -184,6 +193,6 @@
   </data>
   <data name="Placeholder" xml:space="preserve">
     <value>Placeholder</value>
-    <comment>default value</comment>
+    <comment>Default value</comment>
   </data>
 </root>

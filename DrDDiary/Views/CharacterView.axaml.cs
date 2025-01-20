@@ -45,6 +45,10 @@ namespace DrDDiary.Views
             lblDruid.Content = LanguageManager.GetString("lblDruid");
             lblShaman.Content = LanguageManager.GetString("lblShaman");
             lblAlchemist.Content = LanguageManager.GetString("lblAlchemist");
+            //Character resources
+            lblStrength.Content = LanguageManager.GetString("lblStrength");
+            lblSoul.Content = LanguageManager.GetString("lblSoul");
+            lblInfluence.Content = LanguageManager.GetString("lblInfluence");
         }
 
         private void ReloadViewLabels(object ?sender, LanguageEvent e)

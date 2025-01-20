@@ -147,6 +147,9 @@
   <data name="lblHunter" xml:space="preserve">
     <value>Lovec:</value>
   </data>
+  <data name="lblInfluence" xml:space="preserve">
+    <value>Vplyv:</value>
+  </data>
   <data name="lblMage" xml:space="preserve">
     <value>Mág:</value>
   </data>
@@ -171,6 +174,12 @@
   <data name="lblShaman" xml:space="preserve">
     <value>Šaman:</value>
   </data>
+  <data name="lblSoul" xml:space="preserve">
+    <value>Duša:</value>
+  </data>
+  <data name="lblStrength" xml:space="preserve">
+    <value>Sila:</value>
+  </data>
   <data name="lblTrickster" xml:space="preserve">
     <value>Figliar:</value>
   </data>
@@ -180,8 +189,8 @@
   <data name="lblWizard" xml:space="preserve">
     <value>Čarodej:</value>
   </data>
-  <data name="Placeholder" xml:space="preserve">
-    <value>Placeholder</value>
-    <comment>default value</comment>
+  <data name="PlaceHolder" xml:space="preserve">
+    <value>PlaceHolder</value>
+    <comment>Default Value</comment>
   </data>
 </root>

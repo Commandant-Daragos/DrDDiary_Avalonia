@@ -53,6 +53,24 @@ namespace DrDDiary.ViewModels
                     }
 
                     OnPropertyChanged(nameof(LvlFighterTextBoxValue));
+                    OnPropertyChanged(nameof(LvlTricksterTextBoxValue));
+                    OnPropertyChanged(nameof(LvlHunterTextBoxValue));
+                    OnPropertyChanged(nameof(LvlMedicasterTextBoxValue));
+                    OnPropertyChanged(nameof(LvlConjurerTextBoxValue));
+                    OnPropertyChanged(nameof(LvlWarriorTextBoxValue));
+                    OnPropertyChanged(nameof(LvlBorderGuardTextBoxValue));
+                    OnPropertyChanged(nameof(LvlScholarTextBoxValue));
+                    OnPropertyChanged(nameof(LvlWizardTextBoxValue));
+                    OnPropertyChanged(nameof(LvlScoutTextBoxValue));
+                    OnPropertyChanged(nameof(LvlRobberTextBoxValue));
+                    OnPropertyChanged(nameof(LvlMageTextBoxValue));
+                    OnPropertyChanged(nameof(LvlDruidTextBoxValue));
+                    OnPropertyChanged(nameof(LvlShamanTextBoxValue));
+                    OnPropertyChanged(nameof(LvlAlchemistTextBoxValue));
+
+                    OnPropertyChanged(nameof(StrenghtScarsTextBoxValue));
+                    OnPropertyChanged(nameof(SoulScarsTextBoxValue));
+                    OnPropertyChanged(nameof(InfluenceScarsTextBoxValue));
                     // Add OnPropertyChanged calls for other dependent properties
                 }
             }
@@ -317,7 +335,46 @@ namespace DrDDiary.ViewModels
             }
         }
         #endregion
+        #region CharacterScars
+        /// <summary>
+        /// Strength scars TextBox
+        /// </summary>
+        public string? StrenghtScarsTextBoxValue
+        {
+            get { return CharacterModel.StrengthScars; }
+            set
+            {
+                CharacterModel.StrengthScars = value;
+                OnPropertyChanged(nameof(StrenghtScarsTextBoxValue));
+            }
+        }
 
+        /// <summary>
+        /// Soul scars TextBox
+        /// </summary>
+        public string? SoulScarsTextBoxValue
+        {
+            get { return CharacterModel.SoulScars; }
+            set
+            {
+                CharacterModel.SoulScars = value;
+                OnPropertyChanged(nameof(SoulScarsTextBoxValue));
+            }
+        }
+
+        /// <summary>
+        /// Influence scars TextBox
+        /// </summary>
+        public string? InfluenceScarsTextBoxValue
+        {
+            get { return CharacterModel.InfluenceScars; }
+            set
+            {
+                CharacterModel.InfluenceScars = value;
+                OnPropertyChanged(nameof(InfluenceScarsTextBoxValue));
+            }
+        }
+        #endregion
         public UserControl GetView()
         {
             return CharacterView;
@@ -358,6 +415,9 @@ namespace DrDDiary.ViewModels
             OpenFileExplorer();
         }
 
+        /// <summary>
+        /// Private method to open file explorer to choose character image
+        /// </summary>
         private void OpenFileExplorer()
         {
             var openFileDialog = new OpenFileDialog

@@ -70,6 +70,7 @@
               ZIndex="3"
               Command="{Binding EnableImageSelectionButton}"/>
     </Grid>
+    <!--Character levels of classes-->
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-180,-15,0,0" >
       <Label Name="ClassesBasic"/>
       <Grid>
@@ -298,6 +299,99 @@
                  Foreground="Black"
                  HorizontalAlignment="Right"
                  HorizontalContentAlignment="Center"/>
+      </Grid>
+    </StackPanel>
+    <!--Character available resources for Strenght/Soul/Influence-->
+    <StackPanel Margin="800,200,0,0">
+      <Grid Background="Red">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="100"/>
+          <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="lblStrength"
+               FontSize="20"
+               Grid.Column="0"/>
+      </Grid>
+      <Grid Margin="-200,0,0,0">
+        <!-- Custom background with lines -->
+       <Grid Margin="200,0,-100,0">
+        <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" />
+        <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0" />
+        <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,70,0,0" />
+      </Grid>
+
+        <!-- TextBox placed on top -->
+        <TextBox Name="StrengthScars"
+                 Width="500"
+                 Height="95"
+                 MaxLength="200"
+                 Text="{Binding StrenghtScarsTextBoxValue, Mode=TwoWay}}"
+                 Background="Transparent"
+                 BorderBrush="Black"
+                 BorderThickness="2"
+                 TextWrapping="Wrap"
+                 Foreground="Black">
+        </TextBox>
+      </Grid>
+      <Grid Background="Green">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="100"/>
+          <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="lblSoul"
+               FontSize="20"
+               Grid.Column="0"/>
+      </Grid>
+      <Grid Margin="-200,0,0,0">
+        <!-- Custom background with lines -->
+        <Grid Margin="200,0,-100,0">
+          <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" />
+          <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0" />
+          <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,70,0,0" />
+        </Grid>
+
+        <!-- TextBox placed on top -->
+        <TextBox Name="SoulScars"
+                 Width="500"
+                 Height="95"
+                 MaxLength="200"
+                 Text="{Binding SoulScarsTextBoxValue, Mode=TwoWay}}"
+                 Background="Transparent"
+                 BorderBrush="Black"
+                 BorderThickness="2"
+                 TextWrapping="Wrap"
+                 Foreground="Black">
+        </TextBox>
+      </Grid>
+      <Grid Background="Yellow">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="100"/>
+          <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="lblInfluence"
+               FontSize="20"
+               Grid.Column="0"/>
+      </Grid>
+      <Grid Margin="-200,0,0,0">
+        <!-- Custom background with lines -->
+        <Grid Margin="200,0,-100,0">
+          <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" />
+          <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0" />
+          <Rectangle Fill="Gray" Height="1" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,70,0,0" />
+        </Grid>
+
+        <!-- TextBox placed on top -->
+        <TextBox Name="InfluenceScars"
+                 Width="500"
+                 Height="95"
+                 MaxLength="200"
+                 Text="{Binding InfluenceScarsTextBoxValue, Mode=TwoWay}}"
+                 Background="Transparent"
+                 BorderBrush="Black"
+                 BorderThickness="2"
+                 TextWrapping="Wrap"
+                 Foreground="Black">
+        </TextBox>
       </Grid>
     </StackPanel>
   </Grid>

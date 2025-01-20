@@ -61,6 +61,7 @@ namespace DrDDiary.Models
                 _image = value;
             }
         }
+
         #endregion
         #region BasicClasses
         /// <summary>
@@ -257,6 +258,70 @@ namespace DrDDiary.Models
             set
             {
                 _lvlAlchemist = value;
+            }
+        }
+        #endregion
+        #region CharacterResourcesAndScars
+        ///<summary>
+        /// Character levels of Strenght/Soul/Influence + scar descriptions
+        ///</summary>
+        private int? _strength;
+        public int? Strength
+        {
+            get { return _strength; }
+            set
+            {
+                _strength = value;
+            }
+        }
+
+        private string? _strengthScars;
+        public string? StrengthScars
+        {
+            get { return _strengthScars; }
+            set
+            {
+                _strengthScars = value;
+            }
+        }
+
+        private int? _soul;
+        public int? Soul
+        {
+            get { return _soul; }
+            set
+            {
+                _soul = value;
+            }
+        }
+
+        private string? _soulScars;
+        public string? SoulScars
+        {
+            get { return _soulScars; }
+            set
+            {
+                _soulScars = value;
+            }
+        }
+
+        private int? _influence;
+        public int? Influence
+        {
+            get { return _influence; }
+            set
+            {
+                _influence = value;
+            }
+        }
+
+        private string? _influenceScars;
+        public string? InfluenceScars
+        {
+            get { return _influenceScars; }
+            set
+            {
+                _influenceScars = value;
             }
         }
         #endregion
