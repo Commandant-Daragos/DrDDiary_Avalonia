@@ -8,10 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using ProtoBuf;
+using DrDDiary.Helpers.ValueConverter.BitMapSurrogate;
 
 namespace DrDDiary.Models
 {
-    [Serializable]
+    [ProtoContract]
     public class CharacterModel : BaseModel, ICharacterModel
     {
         public CharacterModel()
@@ -24,6 +26,7 @@ namespace DrDDiary.Models
         /// + title
         /// </summary>
         private string? _name;
+        [ProtoMember(1)]
         public string? Name
         {
             get { return _name; }
@@ -38,6 +41,7 @@ namespace DrDDiary.Models
         /// + additional race info
         /// </summary>
         private string? _race;
+        [ProtoMember(2)]
         public string? Race
         {
             get { return _race; }
@@ -46,13 +50,13 @@ namespace DrDDiary.Models
                 _race = value;
             }
         }
-        
+
         /// <summary>
         /// Image of character
         /// </summary>
         private Bitmap? _image;
 
-        [JsonConverter(typeof(ImageConverter))]
+        [ProtoMember(3)]
         public Bitmap? Image
         {
             get { return _image; }
@@ -62,12 +66,21 @@ namespace DrDDiary.Models
             }
         }
 
+        // Explicitly handle serialization and deserialization for Bitmap
+        [ProtoMember(4)]
+        private BitmapSurrogate _imageSurrogate
+        {
+            get => ImageConverter.ToSurrogate(_image); // Convert to surrogate for serialization
+            set => _image = ImageConverter.FromSurrogate(value); // Convert back to Bitmap after deserialization
+        }
+
         #endregion
         #region BasicClasses
         /// <summary>
         /// Fighter class level
         /// </summary>
         private int? _lvlFighter;
+        [ProtoMember(5)]
         public int? LvlFighter
         {
             get { return _lvlFighter; }
@@ -81,6 +94,7 @@ namespace DrDDiary.Models
         /// Trickster class level
         /// </summary>
         private int? _lvlTrickster;
+        [ProtoMember(6)]
         public int? LvlTrickster
         {
             get { return _lvlTrickster; }
@@ -94,6 +108,7 @@ namespace DrDDiary.Models
         /// Hunter class level
         /// </summary>
         private int? _lvlHunter;
+        [ProtoMember(7)]
         public int? LvlHunter
         {
             get { return _lvlHunter; }
@@ -107,6 +122,7 @@ namespace DrDDiary.Models
         /// Medicaster class level
         /// </summary>
         private int? _lvlMedicaster;
+        [ProtoMember(8)]
         public int? LvlMedicaster
         {
             get { return _lvlMedicaster; }
@@ -120,6 +136,7 @@ namespace DrDDiary.Models
         /// Conjurer class level
         /// </summary>
         private int? _lvlConjurer;
+        [ProtoMember(9)]
         public int? LvlConjurer
         {
             get { return _lvlConjurer; }
@@ -134,6 +151,7 @@ namespace DrDDiary.Models
         /// Warrior class level
         /// </summary>
         private int? _lvlWarrior;
+        [ProtoMember(10)]
         public int? LvlWarrior
         {
             get { return _lvlWarrior; }
@@ -147,6 +165,7 @@ namespace DrDDiary.Models
         /// Border Guard class level
         /// </summary>
         private int? _lvlBorderGuard;
+        [ProtoMember(11)]
         public int? LvlBorderGuard
         {
             get { return _lvlBorderGuard; }
@@ -160,6 +179,7 @@ namespace DrDDiary.Models
         /// Scholar class level
         /// </summary>
         private int? _lvlScholar;
+        [ProtoMember(12)]
         public int? LvlScholar
         {
             get { return _lvlScholar; }
@@ -173,6 +193,7 @@ namespace DrDDiary.Models
         /// Wizard class level
         /// </summary>
         private int? _lvlWizard;
+        [ProtoMember(13)]
         public int? LvlWizard
         {
             get { return _lvlWizard; }
@@ -186,6 +207,7 @@ namespace DrDDiary.Models
         /// Scout class level
         /// </summary>
         private int? _lvlScout;
+        [ProtoMember(14)]
         public int? LvlScout
         {
             get { return _lvlScout; }
@@ -199,6 +221,7 @@ namespace DrDDiary.Models
         /// Robber class level
         /// </summary>
         private int? _lvlRobber;
+        [ProtoMember(15)]
         public int? LvlRobber
         {
             get { return _lvlRobber; }
@@ -212,6 +235,7 @@ namespace DrDDiary.Models
         /// Mage class level
         /// </summary>
         private int? _lvlMage;
+        [ProtoMember(16)]
         public int? LvlMage
         {
             get { return _lvlMage; }
@@ -225,6 +249,7 @@ namespace DrDDiary.Models
         /// Druid class level
         /// </summary>
         private int? _lvlDruid;
+        [ProtoMember(17)]
         public int? LvlDruid
         {
             get { return _lvlDruid; }
@@ -238,6 +263,7 @@ namespace DrDDiary.Models
         /// Shaman class level
         /// </summary>
         private int? _lvlShaman;
+        [ProtoMember(18)]
         public int? LvlShaman
         {
             get { return _lvlShaman; }
@@ -252,6 +278,7 @@ namespace DrDDiary.Models
         /// Alchemist class level
         /// </summary>
         private int? _lvlAlchemist;
+        [ProtoMember(19)]
         public int? LvlAlchemist
         {
             get { return _lvlAlchemist; }
@@ -266,6 +293,7 @@ namespace DrDDiary.Models
         /// Character levels of Strenght/Soul/Influence + scar descriptions
         ///</summary>
         private int? _strength;
+        [ProtoMember(20)]
         public int? Strength
         {
             get { return _strength; }
@@ -276,6 +304,7 @@ namespace DrDDiary.Models
         }
 
         private string? _strengthScars;
+        [ProtoMember(21)]
         public string? StrengthScars
         {
             get { return _strengthScars; }
@@ -286,6 +315,7 @@ namespace DrDDiary.Models
         }
 
         private int? _soul;
+        [ProtoMember(22)]
         public int? Soul
         {
             get { return _soul; }
@@ -296,6 +326,7 @@ namespace DrDDiary.Models
         }
 
         private string? _soulScars;
+        [ProtoMember(23)]
         public string? SoulScars
         {
             get { return _soulScars; }
@@ -306,6 +337,7 @@ namespace DrDDiary.Models
         }
 
         private int? _influence;
+        [ProtoMember(24)]
         public int? Influence
         {
             get { return _influence; }
@@ -316,6 +348,7 @@ namespace DrDDiary.Models
         }
 
         private string? _influenceScars;
+        [ProtoMember(25)]
         public string? InfluenceScars
         {
             get { return _influenceScars; }

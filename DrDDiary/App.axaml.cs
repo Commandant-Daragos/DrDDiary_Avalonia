@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.Diagnostics;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using DrDDiary.Helpers;
@@ -12,6 +13,8 @@ using System;
 using DrDDiary.Models.PlayerModel;
 using Avalonia.Controls;
 using System.Threading.Tasks;
+using Avalonia.Media.Imaging;
+using DrDDiary.Helpers.ValueConverter.BitMapSurrogate;
 
 namespace DrDDiary;
 
@@ -23,7 +26,17 @@ public partial class App : Application
 
     public override void Initialize()
     {
+        RegisterBitmapSurrogate();
         AvaloniaXamlLoader.Load(this);
+
+        DevToolsExtensions.AttachDevTools(Application.Current); //For Avalonia diagnostics
+    }
+
+    private void RegisterBitmapSurrogate()
+    {
+        // Register the surrogate for Bitmap
+        ProtoBuf.Meta.RuntimeTypeModel.Default.Add(typeof(Avalonia.Media.Imaging.Bitmap), false)
+            .SetSurrogate(typeof(BitmapSurrogate));
     }
 
     public override void OnFrameworkInitializationCompleted()

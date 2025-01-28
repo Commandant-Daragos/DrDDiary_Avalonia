@@ -128,12 +128,26 @@ namespace DrDDiary.ViewModels
         /// <summary>
         /// Image of character
         /// </summary>
-        public Bitmap? ImageButtonContent
+        public Control? ImageButtonContent
         {
-            get { return CharacterModel.Image; }
+            get
+            {
+                if (CharacterModel.Image != null)
+                {
+                    return new Image { Source = CharacterModel.Image };
+                }
+                return null;
+            }
             set
             {
-                CharacterModel.Image = value;
+                if (value is Image image)
+                {
+                    CharacterModel.Image = image.Source as Bitmap;
+                }
+                else
+                {
+                    CharacterModel.Image = null;
+                }
                 OnPropertyChanged(nameof(ImageButtonContent));
             }
         }
@@ -418,6 +432,50 @@ namespace DrDDiary.ViewModels
         /// <summary>
         /// Private method to open file explorer to choose character image
         /// </summary>
+        //private void OpenFileExplorer()
+        //{
+        //    var openFileDialog = new OpenFileDialog
+        //    {
+        //        Filters = new List<FileDialogFilter>
+        //{
+        //    new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "gif", "bmp" } }
+        //}
+        //    };
+
+        //    // Show the file dialog asynchronously
+        //    var task = openFileDialog.ShowAsync(App.MainWindowInstance);
+
+        //    // Wait for the user to select a file
+        //    task.ContinueWith(t =>
+        //    {
+        //        if (t.IsCompletedSuccessfully && t.Result != null && t.Result.Length > 0)
+        //        {
+        //            var imagePath = t.Result.FirstOrDefault(); // Get the first selected file
+
+        //            if (!string.IsNullOrEmpty(imagePath))
+        //            {
+        //                // Perform UI updates from a non-UI thread
+        //                Dispatcher.UIThread.InvokeAsync(() =>
+        //                {
+        //                    try
+        //                    {
+        //                        var bitmap = new Bitmap(imagePath);
+
+        //                        // Update UI elements here
+        //                        ImageButtonContent = bitmap;
+        //                        CharacterView.ButtonSelectionCharacterScreen.Content = new Image { Source = bitmap };
+        //                        CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        // Handle exceptions (e.g., file not found, invalid image format)
+        //                        Console.WriteLine($"Error loading image: {ex.Message}");
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    });
+        //}
         private void OpenFileExplorer()
         {
             var openFileDialog = new OpenFileDialog
@@ -431,7 +489,7 @@ namespace DrDDiary.ViewModels
             // Show the file dialog asynchronously
             var task = openFileDialog.ShowAsync(App.MainWindowInstance);
 
-            // Wait for the user to select a file
+            // Handle the file selection result
             task.ContinueWith(t =>
             {
                 if (t.IsCompletedSuccessfully && t.Result != null && t.Result.Length > 0)
@@ -440,21 +498,26 @@ namespace DrDDiary.ViewModels
 
                     if (!string.IsNullOrEmpty(imagePath))
                     {
-                        // Perform UI updates from a non-UI thread
+                        // Perform UI updates on the UI thread
                         Dispatcher.UIThread.InvokeAsync(() =>
                         {
                             try
                             {
+                                // Load the image into a Bitmap
                                 var bitmap = new Bitmap(imagePath);
 
-                                // Update UI elements here
-                                ImageButtonContent = bitmap;
+                                // Update the button's content with an Image control
                                 CharacterView.ButtonSelectionCharacterScreen.Content = new Image { Source = bitmap };
+
+                                // Update the ImageButtonContent property
+                                ImageButtonContent = new Image { Source = bitmap };
+
+                                // Disable the button to prevent further changes
                                 CharacterView.ButtonSelectionCharacterScreen.IsEnabled = false;
                             }
                             catch (Exception ex)
                             {
-                                // Handle exceptions (e.g., file not found, invalid image format)
+                                // Log any exceptions
                                 Console.WriteLine($"Error loading image: {ex.Message}");
                             }
                         });
