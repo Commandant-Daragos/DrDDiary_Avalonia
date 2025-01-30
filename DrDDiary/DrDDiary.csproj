@@ -35,6 +35,8 @@
     <None Remove="Assets\Images\CharacterScreen\Medieval Knight.jpg" />
     <None Remove="Assets\Images\Checkboxes\dragon_frame_checkbox_disabled.png" />
     <None Remove="Assets\Images\Checkboxes\dragon_frame_checkbox_normall.png" />
+    <None Remove="Assets\Images\Checkboxes\dragon_frame_checkbox_scarred.png" />
+    <None Remove="Assets\Images\Checkboxes\dragon_frame_checkbox_used.png" />
     <None Remove="Assets\Sounds\button_click.wav" />
   </ItemGroup>
 
@@ -117,6 +119,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>languageSK.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Character\CharacterComponentViews\CharacterResources.axaml.cs">
+      <DependentUpon>CharacterResources.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MainView.axaml.cs">
       <DependentUpon>MainView.axaml</DependentUpon>
